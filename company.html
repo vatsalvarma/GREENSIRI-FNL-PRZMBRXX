@@ -1,0 +1,2052 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – GreenSiri</title>
+    <meta name="description"
+          content="Learn about GreenSiri's vision, mission, core values, pillars, and corporate values. We transform land into inspiring, sustainable communities.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* ─────────────────────────────────────────
+           RESET & BASE
+        ───────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #1a2e1e;
+        }
+
+        /* ─────────────────────────────────────────
+           NAV  (Poppins Light = 300)
+        ───────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        .nav-logo img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #7fcf8e;
+        }
+
+        /* Social sidebar */
+        /* ===============================================================
+           ENHANCED SOCIAL FLOATING SIDEBAR WITH INTERACTIVE SECTIONS
+           ============================================================ */
+
+        /*
+         * MAIN CONTAINER
+         * - Fixed position on right side
+         * - Stays above content but below nav (z-index: 999)
+         * - Stops before footer area
+         */
+        .social-floating {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 99;
+            /* CUSTOMIZE: Adjust top position if needed */
+            /* CUSTOMIZE: Change right: 0 to add spacing from edge */
+        }
+
+        /*
+         * PNG BACKGROUND IMAGE CONTAINER
+         * - Contains the full vertical social icons PNG
+         * - Height and width can be adjusted based on your PNG dimensions
+         */
+        .social-bg-image {
+            position: relative;
+            width: 50px;  /* CUSTOMIZE: Adjust based on PNG width */
+            height: 450px; /* CUSTOMIZE: Adjust based on PNG height */
+            background-image: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Side-line-contact2.png.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* CUSTOMIZE: Change PNG URL above to your image */
+        }
+
+        /*
+         * INDIVIDUAL CLICKABLE SECTIONS
+         * - Each section is a clickable overlay on part of the PNG
+         * - Positioned absolutely within the container
+         * - Invisible by default (transparent)
+         */
+        .social-section {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* CUSTOMIZE: Add background color to see section boundaries during setup */
+            /* background: rgba(255, 0, 0, 0.2); */
+        }
+
+        /* Hover effect - slight scale */
+        .social-section:hover {
+            transform: scale(1.05);
+        }
+
+        /*
+         * HOVER TEXT LABEL
+         * - Hidden by default (opacity 0, translateX)
+         * - Slides in from left on hover
+         * - Positioned to the left of the icon
+         */
+        .social-label {
+            position: absolute;
+            right: 60px; /* CUSTOMIZE: Adjust distance from icon */
+            top: 50%;
+            transform: translateY(-50%) translateX(20px);
+
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            /* CUSTOMIZE: Change colors, padding, font size */
+        }
+
+        /* Arrow pointing to icon */
+        .social-label::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid rgba(0, 0, 0, 0.85);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            /* CUSTOMIZE: Change arrow color to match label background */
+        }
+
+        /* Show label on hover */
+        .social-section:hover .social-label {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /*
+         * SECTION POSITIONS
+         * - Adjust these values based on where each icon is in your PNG
+         * - top: distance from top of container
+         * - height: height of clickable area
+         */
+
+        /* Section 1: "ENQUIRY NOW" text at top */
+        .social-enquiry {
+            top: 50%;;
+            height: 25%; /* CUSTOMIZE: Adjust based on PNG layout */
+        }
+
+        /* Section 2: WhatsApp icon */
+        .social-whatsapp {
+            top: 82%; /* CUSTOMIZE: Starts where enquiry ends */
+            height: 10%; /* CUSTOMIZE: Height of WhatsApp section */
+
+        }
+
+        /* Section 3: Call/Phone icon */
+        .social-call {
+            top: 73%; /* CUSTOMIZE: Starts where WhatsApp ends */
+            height: 10%; /* CUSTOMIZE: Height of call section */
+
+        }
+
+        /* Section 4: Bottom contact icon */
+        .social-contact {
+            top: 89%; /* CUSTOMIZE: Starts where call ends */
+            height: 15%; /* CUSTOMIZE: Height of contact section */
+
+        }
+
+        /*
+         * RESPONSIVE ADJUSTMENTS
+         * - Hide or adjust on mobile devices
+         */
+        @media (max-width: 768px) {
+            .social-floating {
+                right: 5px; /* CUSTOMIZE: Adjust mobile positioning */
+                /* Or hide completely: display: none; */
+            }
+
+            .social-bg-image {
+                width: 40px; /* CUSTOMIZE: Smaller on mobile */
+                height: 360px; /* CUSTOMIZE: Proportional height */
+            }
+
+            .social-label {
+                font-size: 11px; /* CUSTOMIZE: Smaller text on mobile */
+                padding: 6px 12px;
+                right: 50px;
+            }
+        }
+
+        /* Hide social bar when footer is in view */
+        body.footer-visible .social-floating {
+            opacity: 1;
+            pointer-events: none;
+        }
+
+
+        /* ─────────────────────────────────────────
+           SECTION 1 – HERO  (ALL ABOUT GREENSIRI)
+        ───────────────────────────────────────── */
+        .hero-about {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: #013430;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-about::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.15);
+            z-index: 1;
+        }
+
+        .hero-arrow {
+            position: absolute;
+            bottom: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            animation: arrowBounce 1.8s ease-in-out infinite;
+        }
+
+        .hero-arrow span {
+            display: block;
+            width: 22px;
+            height: 22px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(45deg);
+            opacity: 0.8;
+        }
+
+        @keyframes arrowBounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 150px;
+            left: 55%;
+            transform: translateX(-20%);
+            z-index: 3;
+            text-align: left;
+        }
+
+        .hero-text .sub-label {
+            font-weight: 300;
+            font-size: clamp(14px, 2vw, 22px);
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .hero-text .main-heading {
+            font-weight: 600;
+            font-size: clamp(36px, 5.5vw, 72px);
+            color: white;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            line-height: 1.05;
+            text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 2 – VISION MISSION CORE VALUES
+        ───────────────────────────────────────── */
+        .vmc-section {
+            background: #013430;
+            position: relative;
+            padding: 100px 0 80px;
+            overflow: hidden;
+        }
+
+        .vmc-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .vmc-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .vmc-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 70px;
+        }
+
+        .vmc-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .big-letter {
+            font-weight: 100;
+            font-size: clamp(140px, 16vw, 280px);
+            color: white;
+            line-height: 0.85;
+            min-width: 160px;
+            text-align: center;
+            opacity: 0.90;
+        }
+
+        .vmc-content {
+            padding: 10px 30px;
+            flex: 1;
+        }
+
+        .vmc-title {
+            font-weight: 100;
+            font-size: clamp(26px, 4vw, 52px);
+            color: white;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .vmc-text {
+            font-weight: 500;
+            font-size: clamp(13px, 1.3vw, 16px);
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.85;
+            max-width: 540px;
+            text-transform: uppercase;
+        }
+
+        .cv-item {
+            margin-bottom: 8px;
+        }
+
+        .cv-item strong {
+            font-weight: 600;
+            color: #8dd8a0;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 3 – GREENSIRI PILLARS
+        ───────────────────────────────────────── */
+        .pillars-section {
+            background: #013430;
+            padding: 84px 80px 20px;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .pillars-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pillars-title {
+            font-size: clamp(28px, 3.5vw, 46px);
+            font-weight: 200;
+            letter-spacing: 4px;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1) 0.4s;
+        }
+
+        .pillars-section.visible .pillars-title {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .pillars-title .line {
+            width: 0;
+            height: 2px;
+            background: white;
+            margin-top: 8px;
+            transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.8s;
+        }
+
+        .pillars-section.visible .pillars-title .line {
+            width: 200px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .vertical-text-container {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg) translateY(0px);
+            font-size: 1.45rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #9bb5af;
+            text-align: right;
+            line-height: 1.2;
+            transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .vertical-text.slide-out {
+            opacity: 0;
+            transform: rotate(180deg) translateY(40px);
+        }
+
+        .vertical-text.slide-in {
+            opacity: 0;
+            transform: rotate(180deg) translateY(-40px);
+        }
+
+        .right-text-container {
+            position: absolute;
+            max-width: 400px;
+            z-index: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .right-text-container h1 {
+            font-size: clamp(1.4rem, 2vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .right-text-container h2 {
+            font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+            font-weight: 300;
+            margin-bottom: 18px;
+            color: #9bb5af;
+            letter-spacing: 2px;
+        }
+
+        .right-text-container p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #9bb5af;
+        }
+
+        .image-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .track-item {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+            will-change: transform, width, height, opacity;
+            transition:
+                transform 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+                width 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+                height 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.72s ease;
+        }
+
+        .track-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+            filter: brightness(1);
+            transition:
+                height 0.72s cubic-bezier(0.25, 1, 0.5, 1),
+                border-radius 0.72s ease,
+                filter 0.72s ease;
+        }
+
+        .track-item:not(.active) img {
+            height: calc(100% - 30px);
+            border-radius: 6px;
+            filter: brightness(0.55);
+        }
+
+        .track-item:hover:not(.active) img {
+            filter: brightness(0.85);
+        }
+
+        .track-item.active {
+            cursor: default;
+            z-index: 5;
+        }
+
+        .track-item.no-transition {
+            transition: none !important;
+        }
+
+        .track-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: #9bb5af;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.72s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .track-item:not(.active) .track-label {
+            opacity: 1;
+        }
+
+        .track-item.active .track-label {
+            opacity: 0 !important;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 4 – GREENSIRI VALUES
+        ───────────────────────────────────────── */
+        .values-section {
+            background: #013430;
+            position: relative;
+            padding: 90px 80px 80px;
+            overflow: hidden;
+        }
+
+        .values-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .values-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .values-media {
+            width: 100%;
+            aspect-ratio: 16/7;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 50px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .values-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .values-media:hover img {
+            transform: scale(1.03);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: background 0.3s;
+        }
+
+        .play-btn::after {
+            content: "";
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+
+        .values-media:hover .play-btn {
+            background: rgba(255, 255, 255, 0.30);
+        }
+
+        .values-caption {
+            font-weight: 500;
+            font-size: clamp(14px, 1.5vw, 18px);
+            color: rgba(255, 255, 255, 0.90);
+            line-height: 1.8;
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 50px;
+        }
+
+        /* ─────────────────────────────────────────
+           SECTION 5 – CORPORATE OFFICE GALLERY
+        ───────────────────────────────────────── */
+        .strip-heading {
+            position: absolute;
+            top: 40px;
+            left: 400px;
+            z-index: 5;
+        }
+
+        .strip-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: #013430;
+        }
+
+        .strip-section::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+        }
+
+        .strip-gallery {
+            display: flex;
+            gap: clamp(10px, 1.4vw, 24px);
+            position: relative;
+            z-index: 2;
+            transform: translateX(clamp(10px, 10vw, 10px));
+        }
+
+        .strip-card {
+            width: clamp(110px, 13vw, 220px);
+            height: clamp(300px, 55vh, 600px);
+            overflow: hidden;
+            border-radius: 1px;
+            position: relative;
+            transition: 0.6s ease;
+        }
+
+        .strip-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+            transition: 4s ease;
+        }
+
+        .strip-card:nth-child(odd) {
+            animation: stripFloatUp 6s ease-in-out infinite;
+        }
+
+        .strip-card:nth-child(even) {
+            animation: stripFloatDown 6s ease-in-out infinite;
+        }
+
+        @keyframes stripFloatUp {
+
+            0%,
+            100% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(25px);
+            }
+        }
+
+        @keyframes stripFloatDown {
+
+            0%,
+            100% {
+                transform: translateY(25px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .strip-card:hover {
+            width: clamp(150px, 18vw, 300px);
+        }
+
+        .strip-card:hover img {
+            transform: scale(1);
+        }
+
+        .strip-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: clamp(12px, 1.3vw, 22px);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-align: center;
+            z-index: 3;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+            transition: 0.4s;
+        }
+
+        .strip-card:hover .strip-title {
+            transform: translate(-50%, -60%);
+            font-size: clamp(14px, 1.5vw, 24px);
+        }
+
+        /* ─────────────────────────────────────────
+           FOOTER
+        ───────────────────────────────────────── */
+
+        /* FOOTER */
+        footer {
+            background-color: #0b0b0b;
+            color: white;
+            padding: 60px 8%;
+            min-height: 30vh;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+            padding: 15px 40px;
+            border-right: 2px solid #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-col:first-child {
+            padding-left: 0;
+            flex: 1.5;
+        }
+
+        .footer-col:nth-child(1),
+        .footer-col:nth-child(2) {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .footer-col:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .footer-bold {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            line-height: 1.6;
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        .footer-contact-item i {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .footer-logo {
+            width: 150px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-tagline {
+            font-size: 9px;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .footer-subscribe h5,
+        .footer-social h5 {
+            font-size: 11px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-social h5 {
+            font-size: 13px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscribe-form input {
+            background: transparent;
+            border: 1px solid #fff;
+            padding: 8px 12px;
+            color: white;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .subscribe-form button {
+            background: transparent;
+            border: 1px solid #fff;
+            padding: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .subscribe-form button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .subscribe-note {
+            font-size: 8px;
+            color: #fff;
+            margin-top: 5px;
+            white-space: nowrap;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-social-icons a {
+            width: 36px;
+            height: 36px;
+            box-shadow: 0 0 0 1.5px #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social-icons a:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 0 1.5px #fff;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ─────────────────────────────────────────
+           SCROLL REVEAL ANIMATIONS
+        ───────────────────────────────────────── */
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-120px);
+            transition:
+                transform 1.2s cubic-bezier(.22, .61, .36, 1),
+                opacity 1.2s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(120px);
+            transition:
+                transform 1.2s cubic-bezier(.22, .61, .36, 1),
+                opacity 1.2s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .slide-left.visible,
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===============================
+   HAMBURGER MENU
+================================= */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* ===============================
+   MOBILE STYLES
+================================= */
+@media (max-width: 768px) {
+
+    /* NAV */
+    nav {
+        padding: 12px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 75%;
+        background: #013430;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 30px;
+        gap: 20px;
+        transition: 0.4s ease;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    /* HERO FIX */
+
+      .hero-video {
+        object-position: 30% center; /* move right */
+    }
+
+
+    .hero-text {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        bottom: 120px;
+    }
+
+    .hero-text .main-heading {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    /* VMC SECTION */
+    .vmc-inner {
+        padding: 0 20px;
+    }
+
+     .vmc-row {
+        display: flex;
+        flex-direction: row;        /* KEEP SIDE BY SIDE */
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+     .vmc-row.reverse {
+        flex-direction: row;        /* REMOVE reverse on mobile */
+    }
+    .big-letter {
+        font-size: 180px;
+        margin-bottom: 10px;
+    }
+
+    .vmc-content {
+        padding: 10px 0;
+    }
+
+    .vmc-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* VALUES */
+    .values-section {
+        padding: 60px 20px;
+    }
+
+    .values-caption {
+        font-size: 13px;
+    }
+
+    .cv-item {
+    white-space: normal !important;
+    word-break: break-word;
+}
+
+    /* STRIP GALLERY FIX */
+    .strip-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+     .strip-gallery {
+        display: flex;
+        flex-direction: row;        /* IMPORTANT: keep row */
+        overflow-x: auto;           /* enable horizontal scroll */
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+        padding: 0 25px;
+        transform: none;
+        width: 100%;
+    }
+
+    .strip-card {
+        width: 100%;
+        height: 250px;
+    }
+
+    .strip-card:hover {
+        width: 100%;
+    }
+
+    .strip-heading {
+    position: static;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+    /* FOOTER FIX */
+    .footer-grid {
+        flex-direction: column;
+    }
+
+    .footer-col {
+        border-right: none;
+        padding: 20px 0;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-text {
+        white-space: normal;
+    }
+
+    .subscribe-note {
+        white-space: normal;
+    }
+}
+
+
+/* ================= CHATBOT WIDGET ================= */
+.chatbot-wrapper {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: none;
+    z-index: 120;
+}
+
+.chatbot-wrapper.open {
+    display: flex;
+}
+
+.chatbot-window {
+    width: 320px;
+    height: 420px;
+    background: #0f1c18;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    color: #e6f4ec;
+    overflow: hidden;
+    resize: both;
+    min-width: 240px;
+    min-height: 280px;
+}
+
+.chatbot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: linear-gradient(120deg, #1c3b2f, #164331);
+    cursor: move;
+    user-select: none;
+}
+
+.chatbot-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.chatbot-title i {
+    color: #7cf2b0;
+}
+
+.chatbot-close {
+    background: transparent;
+    border: none;
+    color: #e6f4ec;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chatbot-body {
+    flex: 1;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    background: linear-gradient(180deg, rgba(14, 31, 25, 0.95), rgba(10, 20, 17, 0.96));
+}
+
+.chat-message {
+    max-width: 85%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+.chat-message.bot {
+    background: rgba(124, 242, 176, 0.12);
+    border: 1px solid rgba(124, 242, 176, 0.3);
+    align-self: flex-start;
+}
+
+.chat-message.user {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    align-self: flex-end;
+}
+
+.chatbot-footer {
+    display: flex;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(12, 24, 20, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e6f4ec;
+    outline: none;
+}
+
+.chatbot-send {
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    background: #7cf2b0;
+    color: #0f1c18;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= MOBILE RESPONSIVE STYLES ================= */
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: 90vw;
+        height: 60vh;
+    }
+}
+
+      @media (min-width: 2560px) {
+    .zoom-wrapper {
+        zoom: 1.7;
+    }
+}
+
+         /* ── 2560px (QHD / 4K) ── */
+        @media (min-width: 2560px) {
+
+            /* NAV */
+            nav {
+                padding: 23px 70px;
+            }
+
+            nav ul {
+                gap: 36px;
+            }
+
+            nav ul li a {
+                font-size: 15px;
+            }
+
+            .nav-logo img {
+                height: 42px;
+            }
+
+            .nav-dark .nav-logo img {
+                height: 100px;
+            }
+
+            /* SOCIAL ICONS */
+     .footer-social-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+        gap: 20px;
+        justify-items: center;
+        max-width: 220px; /* controls width so it wraps nicely */
+        margin: 0 auto;
+    }
+
+    /* LOGO */
+    .footer-logo {
+        width: 180px;
+    }
+
+    .footer-social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="zoom-wrapper">
+    <div class="social-floating">
+        <div class="social-bg-image">
+
+            <!--
+            ══════════════════════════════════════════════════════
+            SECTION 1: ENQUIRY NOW
+            ══════════════════════════════════════════════════════
+            CUSTOMIZE:
+            - Change href to your enquiry page URL
+            - Adjust top/height values to match PNG layout
+            - Modify label text
+            -->
+            <a href="https://vatsalvarma.github.io/Greensiri-Contact/"
+               class="social-section social-enquiry"
+               target="_blank">
+                <div class="social-label">ENQUIRY NOW</div>
+            </a>
+
+            <!--
+            ══════════════════════════════════════════════════════
+            SECTION 2: CALL
+            ══════════════════════════════════════════════════════
+            CUSTOMIZE:
+            - Change phone number in href (9119925552)
+            - This opens phone dialer on mobile/desktop
+            - Adjust position to match call icon in PNG
+            -->
+            <a href="tel:+919511125552"
+               class="social-section social-call">
+                <div class="social-label">CALL NOW</div>
+            </a>
+
+            <!--
+           ══════════════════════════════════════════════════════
+           SECTION 3: WHATSAPP
+           ══════════════════════════════════════════════════════
+           CUSTOMIZE:
+           - Change phone number in href (919999999999)
+           - Modify pre-filled message after &text=
+           - Adjust position to match WhatsApp icon in PNG
+           -->
+            <a href="https://wa.me/919511125552?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
+               class="social-section social-whatsapp"
+               target="_blank">
+                <div class="social-label">WHATSAPP</div>
+            </a>
+
+            <a href="#"
+               class="social-section social-contact"
+               id="chatbotToggle"
+               role="button">
+                <div class="social-label">CHAT-BOT</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Chatbot widget -->
+    <div class="chatbot-wrapper" id="chatbotWrapper">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header" id="chatbotDragHandle">
+                <div class="chatbot-title">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>Green Siri</span>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
+            </div>
+            <div class="chatbot-body" id="chatbotMessages">
+                <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
+                       autocomplete="off">
+                <button class="chatbot-send" id="chatbotSend">Send</button>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-logo">
+            <a href=" https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                     alt="GreenSiri Logo">
+            </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">HOME</a></li>
+            <li><a href="https://vatsalvarma.github.io/TarniFarms/">FARMS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/">RESIDENTIALS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/">VILLAS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Shot-at-site/">SHOT AT SITE</a></li>
+            <li><a href="">COMPANY</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-blogs-/">BLOGS</a></li>
+            <li><a href="https://vatsalvarma.github.io/Greensiri-Contact/">CONTACT</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<section class="hero-about" id="top">
+
+    <video class="hero-video" autoplay muted playsinline preload="auto">
+        <source src="About_us_video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-text">
+        <span class="sub-label">All About</span>
+        <span class="main-heading">GreenSiri</span>
+    </div>
+
+    <div class="hero-arrow">
+        <span></span>
+    </div>
+
+
+</section>
+
+
+</section> <!-- hero ends -->
+
+<div class="zoom-wrapper">  <!-- ADD THIS -->
+
+    <section class="vmc-section" id="vision">
+        <div class="vmc-inner">
+
+            <div class="vmc-row slide-left">
+                <div class="big-letter">V</div>
+                <div class="vmc-content">
+                    <div class="vmc-title">Vision</div>
+                    <p class="vmc-text mission-right">
+                        To be the most trusted partner in transforming land into
+                        sanctuaries, creating attainable communities, and
+                        nurturing aspirations in real estate.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vmc-row reverse slide-right">
+                <div class="big-letter">M</div>
+                <div class="vmc-content mission-text">
+                    <div class="vmc-title">Mission</div>
+                    <p class="vmc-text">
+                        GreenSiri strives to make conscious growth possible, with
+                        each step propelling GreenSiri and its future.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vmc-row slide-left">
+                <div class="big-letter">C</div>
+                <div class="vmc-content">
+                    <div class="vmc-title">Core Values</div>
+                    <div class="vmc-text">
+                        <div class="cv-item" style="white-space: nowrap"><strong>NATURE</strong> – Committed to eco-friendly and sustainable growth.
+                        </div>
+                        <div class="cv-item"><strong>PEACE</strong> – Building spaces that inspire harmony and
+                            well-being.</div>
+                        <div class="cv-item" style="white-space: nowrap;"><strong>LEGACY</strong> – Investing today for a strong foundation for
+                            tomorrow.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--
+    <section class="pillars-section" id="pillars">
+
+        <div class="pillars-title">
+            GREENSIRI PILLARS
+            <div class="line"></div>
+        </div>
+
+        <div class="slider-wrapper" id="slider-wrapper">
+            <div class="vertical-text-container" id="vtext-container">
+                <div class="vertical-text" id="person-role"></div>
+            </div>
+
+            <div class="right-text-container" id="text-container">
+                <h1 id="person-name"></h1>
+                <h2 id="person-surname"></h2>
+                <p id="person-desc"></p>
+            </div>
+
+            <div class="image-track" id="track"></div>
+        </div>
+
+    </section>
+    -->
+
+    <section class="values-section" id="values">
+        <div class="values-inner">
+
+            <div class="vmc-title">GREENSIRI VALUES</div>
+
+            <div class="values-media reveal">
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/aboutpg-gs-bkg.png"
+                     alt="GreenSiri Values Video">
+                <div class="play-btn"></div>
+            </div>
+
+            <p class="values-caption reveal">
+                At GreenSiri, real estate is more than land and buildings – it's about creating inspiring
+                spaces, connecting communities, and enriching lives through sustainable developments
+                that blend modern living with lasting integrity.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="strip-section" id="gallery">
+        <div class="vmc-title strip-heading">CORPORATE OFFICE GALLERY</div>
+        <div class="strip-gallery">
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
+                <div class="strip-title">CORPORATE GALLERY</div>
+            </div>
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%203.png">
+                <div class="strip-title">FARM GALLERY</div>
+            </div>
+            <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Gallery-greensiri/')">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/forground%201.png">
+                <div class="strip-title">RESIDENTIAL GALLERY</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <span class="footer-bold">GREENSIRI INFRA LLP</span>
+                <p class="footer-text">
+                    130/2, 3RD FLOOR, OMKARA BUILDING,<br>
+                    INTERNATIONAL AIRPORT ROAD, NEHRU NAGAR,<br>
+                    YELAHANKA, BENGALURU - 64
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <a href="tel:+919511125552" class="footer-contact-item" style="color: white; text-decoration: none;">
+                    <i class="fa-solid fa-phone"></i>
+                    +91 95111 25552
+                </a>
+                <a href="mailto:contact@greensiri.in" class="footer-contact-item" style="color: white; text-decoration: none;">
+                    <i class="fa-regular fa-envelope"></i>
+                    contact@greensiri.in
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <div>
+                    <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                         class="footer-logo">
+                </div>
+                <p class="footer-tagline"></p>
+            </div>
+
+            <div class="footer-col footer-subscribe">
+                <h5>DO YOU HAVE ANY QUERY?</h5>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="example@email.com" required
+                           oninvalid="this.setCustomValidity('please enter valid email address')"
+                           oninput="this.setCustomValidity('')">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="subscribe-note">
+                    PLEASE FEEL FREE TO SHARE ANY QUERIES YOU HAVE
+                </div>
+            </div>
+
+            <div class="footer-col footer-social">
+                <h5>SOCIAL MEDIA LINKS</h5>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Greensiri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/919511125552?text=" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; Copyright 2026
+                <span class="highlight">GREENSIRI PROPERTIES</span>.
+                All Rights Reserved |
+
+                Website Design by
+                <a href="https://prizmabrixx.com/" target="_blank" rel="noopener noreferrer" class="highlight">PRIZMABRIXX</a>
+            </p>
+        </div>
+    </footer>
+</div> <!-- END WRAPPER -->
+<script>
+    // --- Scroll Reveal Animations ---
+    const revealEls = document.querySelectorAll('.slide-left, .slide-right');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // --- Hero Video – pause at end ---
+    const heroVideo = document.querySelector(".hero-video");
+    if (heroVideo) {
+        heroVideo.addEventListener("ended", () => heroVideo.pause());
+    }
+
+    // ── GreenSiri Pillars Advanced Carousel ──────────────────────────────
+    const baseData = [
+        {
+            role: "MANAGING DIRECTOR", name: "MR. JAGGESH", surname: "REDDY",
+            desc: "Real estate is more than land and buildings – it's about creating inspiring spaces, connecting communities, and enriching lives.",
+            img: "img1.jpg"
+        },
+        {
+            role: "LEAD ARCHITECT", name: "ALEX", surname: "CARTER",
+            desc: "Building sustainable futures through innovative architectural design and mindful resource allocation across all our projects.",
+            img: "img2.jpg"
+        },
+        {
+            role: "HEAD DESIGNER", name: "SARAH", surname: "JENKINS",
+            desc: "Transforming urban landscapes into green, breathable ecosystems that foster community growth and well-being.",
+            img: "img3.jpg"
+        },
+        {
+            role: "CHIEF ENGINEER", name: "DAVID", surname: "CHEN",
+            desc: "Ensuring every foundation we pour is built on integrity, safety, and a commitment to generational quality.",
+            img: "img4.jpg"
+        },
+        {
+            role: "SALES DIRECTOR", name: "EMILY", surname: "STONE",
+            desc: "Connecting families with their dream homes through transparent communication and dedicated service.",
+            img: "img5.jpg"
+        },
+        {
+            role: "PROJECT MANAGER", name: "MARCUS", surname: "WRIGHT",
+            desc: "Pioneering smart-home integration to bring modern convenience into the heart of traditional family living.",
+            img: "img6.jpg"
+        }
+    ];
+
+    const teamData = [...baseData, ...baseData, ...baseData, ...baseData, ...baseData];
+    let currentIndex = baseData.length * 2;
+
+    const track = document.getElementById('track');
+    const textCont = document.getElementById('text-container');
+    const vtextCont = document.getElementById('vtext-container');
+    const elRole = document.getElementById('person-role');
+    const elName = document.getElementById('person-name');
+    const elSurname = document.getElementById('person-surname');
+    const elDesc = document.getElementById('person-desc');
+
+    let isAnimating = false;
+    let autoPlayInterval;
+
+    let THUMB_W, THUMB_H, ACTIVE_W, ACTIVE_H, GAP;
+    let LEFT_X, ACTIVE_X, RIGHT_START_X;
+
+    function computeSizes() {
+        const wrapper = document.getElementById('slider-wrapper');
+        if (!wrapper) return; // Safety check
+        const h = wrapper.clientHeight;
+
+        ACTIVE_H = Math.round(h * 0.95);
+        ACTIVE_W = Math.round(ACTIVE_H * 0.69);
+
+        THUMB_H = Math.round(h * 0.34);
+        THUMB_W = Math.round(THUMB_H * 0.78);
+        GAP = 18;
+
+        LEFT_X = 60;
+        ACTIVE_X = LEFT_X + THUMB_W + GAP + 20;
+        RIGHT_START_X = ACTIVE_X + ACTIVE_W + GAP;
+
+        const topOffset = (h - ACTIVE_H) / 2;
+
+        if (vtextCont) {
+            vtextCont.style.left = (ACTIVE_X - 55) + 'px';
+            vtextCont.style.top = (topOffset + 10) + 'px';
+        }
+
+        if (textCont) {
+            textCont.style.left = RIGHT_START_X + 'px';
+            textCont.style.top = topOffset + 'px';
+            textCont.style.maxWidth = Math.max(280, wrapper.clientWidth - RIGHT_START_X - 10) + 'px';
+        }
+    }
+
+    function getTarget(rel) {
+        if (rel === 0) return { x: ACTIVE_X, w: ACTIVE_W, h: ACTIVE_H, z: 5, active: true, opacity: 1 };
+        if (rel === -1) return { x: LEFT_X, w: THUMB_W, h: THUMB_H, z: 4, active: false, opacity: 1 };
+        if (rel > 0) {
+            if (rel <= 3) return { x: RIGHT_START_X + (rel - 1) * (THUMB_W + GAP), w: THUMB_W, h: THUMB_H, z: 3, active: false, opacity: 1 };
+            else return { x: 1600, w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0 };
+        }
+        return { x: -400, w: THUMB_W, h: THUMB_H, z: 2, active: false, opacity: 0 };
+    }
+
+    function applyStyle(item, t, instant) {
+        if (instant) item.classList.add('no-transition');
+        else item.classList.remove('no-transition');
+
+        item.style.transform = `translate3d(${t.x}px, 0, 0)`;
+        item.style.width = `${t.w}px`;
+        item.style.height = `${t.h}px`;
+        item.style.zIndex = t.z;
+        item.style.opacity = t.opacity !== undefined ? t.opacity : 1;
+
+        if (t.active) item.classList.add('active');
+        else item.classList.remove('active');
+    }
+
+    function slideTo(index) {
+        if (isAnimating || index === currentIndex) return;
+        isAnimating = true;
+        resetAutoPlay();
+
+        const items = Array.from(document.querySelectorAll('.track-item'));
+        items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                currentIndex = index;
+                items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), false));
+                updateText(true);
+            });
+        });
+
+        setTimeout(() => {
+            let jumped = false;
+            if (currentIndex <= baseData.length) {
+                currentIndex += baseData.length * 2; jumped = true;
+            } else if (currentIndex >= baseData.length * 3) {
+                currentIndex -= baseData.length * 2; jumped = true;
+            }
+            if (jumped && track) {
+                items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+                void track.offsetWidth;
+            }
+            isAnimating = false;
+        }, 780);
+    }
+
+    function updateText(animate) {
+        if (!elRole || !elName || !elSurname || !elDesc) return; // Safety check
+        const applyText = () => {
+            const d = teamData[currentIndex];
+            elRole.innerHTML = d.role.split(' ').reverse().join('<br>');
+            elName.textContent = d.name;
+            elSurname.textContent = d.surname;
+            elDesc.textContent = d.desc;
+        };
+
+        if (animate && textCont) {
+            textCont.style.opacity = '0';
+            elRole.classList.remove('slide-in');
+            elRole.classList.add('slide-out');
+
+            setTimeout(() => {
+                applyText();
+                elRole.classList.remove('slide-out');
+                elRole.classList.add('slide-in');
+                void elRole.offsetWidth;
+                elRole.classList.remove('slide-in');
+                textCont.style.opacity = '1';
+            }, 360);
+        } else {
+            applyText();
+        }
+    }
+
+    function startAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(() => slideTo(currentIndex + 1), 4000);
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    }
+
+    function initAdvancedCarousel() {
+        computeSizes();
+        if (!track) return; // Safety check
+
+        teamData.forEach((item, index) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'track-item';
+            wrapper.onclick = () => slideTo(index);
+
+            const img = document.createElement('img');
+            img.src = item.img;
+            img.alt = item.name;
+
+            const label = document.createElement('div');
+            label.className = 'track-label';
+            label.textContent = item.role;
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(label);
+            track.appendChild(wrapper);
+        });
+
+        const items = Array.from(document.querySelectorAll('.track-item'));
+        items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+        updateText(false);
+        startAutoPlay();
+    }
+
+    // Only run carousel setup if the HTML isn't commented out
+    const sliderWrapper = document.getElementById('slider-wrapper');
+    if (sliderWrapper) {
+        sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        sliderWrapper.addEventListener('mouseleave', startAutoPlay);
+        initAdvancedCarousel();
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (document.getElementById('slider-wrapper')) {
+                computeSizes();
+                const items = Array.from(document.querySelectorAll('.track-item'));
+                items.forEach((item, i) => applyStyle(item, getTarget(i - currentIndex), true));
+            }
+        }, 120);
+    });
+
+    // ── Pillar Section Scroll Trigger ──
+    const pillarSection = document.querySelector(".pillars-section");
+    if (pillarSection) {
+        const pillarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) pillarSection.classList.add("visible");
+            });
+        }, { threshold: 0.2 });
+        pillarObserver.observe(pillarSection);
+    }
+
+    function toggleMenu() {
+        document.querySelector("nav ul").classList.toggle("active");
+    }
+
+    // =====================================================================
+    // CHATBOT WIDGET
+    // =====================================================================
+    const chatbotWrapper = document.getElementById('chatbotWrapper');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotDragHandle = document.getElementById('chatbotDragHandle');
+
+    function openChatbot() {
+        chatbotWrapper.classList.add('open');
+        chatbotInput.focus();
+    }
+
+    function closeChatbot() {
+        chatbotWrapper.classList.remove('open');
+    }
+
+    function addMessage(text, type) {
+        const bubble = document.createElement('div');
+        bubble.className = `chat-message ${type}`;
+        bubble.textContent = text;
+        chatbotMessages.appendChild(bubble);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function respondToMessage(message) {
+        const normalized = message.trim().toLowerCase();
+        if (['hi', 'hello', 'hey'].includes(normalized)) {
+            addMessage('Hi, this is Green Siri.', 'bot');
+        } else {
+            addMessage('Thanks for reaching out! Share your query and we will get back to you.', 'bot');
+        }
+    }
+
+    function sendMessage() {
+        const text = chatbotInput.value.trim();
+        if (!text) return;
+        addMessage(text, 'user');
+        chatbotInput.value = '';
+        respondToMessage(text);
+    }
+
+    // Event Listeners for Chat Functionality
+    chatbotToggle?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openChatbot();
+    });
+
+    chatbotClose?.addEventListener('click', closeChatbot);
+    chatbotSend?.addEventListener('click', sendMessage);
+    chatbotInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // Drag to reposition logic
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startRight = 0;
+    let startBottom = 0;
+
+    function handleDragStart(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        const rect = chatbotWrapper.getBoundingClientRect();
+        startRight = window.innerWidth - rect.right;
+        startBottom = window.innerHeight - rect.bottom;
+        document.addEventListener('pointermove', handleDragMove);
+        document.addEventListener('pointerup', handleDragEnd);
+    }
+
+    function handleDragMove(e) {
+        if (!isDragging) return;
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        chatbotWrapper.style.right = `${Math.max(0, startRight - deltaX)}px`;
+        chatbotWrapper.style.bottom = `${Math.max(0, startBottom - deltaY)}px`;
+    }
+
+    function handleDragEnd() {
+        isDragging = false;
+        document.removeEventListener('pointermove', handleDragMove);
+        document.removeEventListener('pointerup', handleDragEnd);
+    }
+
+    chatbotDragHandle?.addEventListener('pointerdown', handleDragStart);
+</script>
+</body>
+
+</html>
