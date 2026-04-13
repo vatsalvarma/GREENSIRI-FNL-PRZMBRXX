@@ -1,1 +1,3988 @@
 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greensiri Properties</title>
+    <link rel="icon" type="image/png"
+          href="https://raw.githubusercontent.com/vatsalvarma/TarniFarms/refs/heads/main/Greensiri%20Logo%20Fevicon%20Green.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Arya:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            overflow-y: unset;
+            background: black;
+        }
+
+        /* ================= GLASS NAV ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: clamp(12px, 1.5vh, 24px) clamp(24px, 4vw, 80px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom: none;
+        }
+
+        nav h2 {
+            color: white;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            gap: clamp(16px, 2.5vw, 48px);
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(10px, 0.85vw, 15px);
+        }
+
+        .nav-logo img {
+            height: clamp(32px, 3.5vh, 56px);
+            width: auto;
+            object-fit: contain;
+            transition: height 0.3s ease;
+        }
+
+        .nav-dark .nav-logo img {
+            height: clamp(40px, 5vh, 72px);
+            width: auto;
+        }
+
+        .nav-logo img:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+
+        /* ===== FIRST HERO ===== */
+        .main-hero {
+            height: 100vh;
+            width: 100%;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/bg.png") no-repeat center center/cover;
+            position: relative;
+        }
+
+        .main-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .main-hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .main-hero-text h1 {
+            font-size: clamp(32px, 6vw, 96px);
+            letter-spacing: 6px;
+            white-space: nowrap;
+        }
+
+        .main-hero-text p {
+            margin-top: clamp(6px, 1vh, 16px);
+            font-size: clamp(13px, 1.4vw, 22px);
+        }
+
+        /* ===== EXPLORE BUTTON ===== */
+        .explore-btn {
+            position: absolute;
+            padding: clamp(4px, 0.6vh, 10px) clamp(12px, 1.5vw, 24px);
+            font-size: clamp(11px, 1.1vw, 18px);
+            letter-spacing: 2px;
+            color: white;
+            background: transparent;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        .villa-btn {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .farm-btn {
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .res-btn {
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sky {
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/farmhouseskybg.png") no-repeat center center/cover;
+            z-index: 0;
+            transition: transform 0.2s ease-out;
+            animation: floatSky 6s ease-in-out infinite alternate;
+        }
+
+        .text-layer {
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: 80%;
+            text-align: center;
+        }
+
+        .text-layer h1 {
+            font-size: clamp(24px, 5vw, 80px);
+            color: white;
+            letter-spacing: 1px;
+            animation: floatText 4s ease-in-out infinite alternate;
+        }
+
+        .image-layer {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            top: 10%;
+            left: -10%;
+            z-index: 2;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+        }
+
+        .image-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes floatSky {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes floatText {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .next {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            color: white;
+            font-size: 40px;
+            letter-spacing: 4px;
+        }
+
+        .farmhouse .text-layer {
+            top: 21%;
+            left: 38%;
+            transform: translate(-30%, -45%);
+        }
+
+        .residence-sky {
+            background: url("https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/residentialskyng.png") no-repeat center center/cover;
+        }
+
+        .villa-sky {
+            background: url("https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/villaSkybg.png") no-repeat center center/cover;
+        }
+
+        .residence .text-layer {
+            top: 33%;
+            left: 70%;
+            margin: 0;
+            line-height: 0.9;
+            transform: translate(-75%, -60%);
+        }
+
+        /* ===== SNAP ALL SECTIONS ===== */
+        section,
+        footer {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* promise-section uses min-height so needs this too */
+        .promise-section {
+            scroll-snap-align: start;
+        }
+
+        /* ================= BRAND SECTION — FIX ================= */
+        .nav-dark h2,
+        .nav-dark ul li a {
+            color: black;
+        }
+
+        .brand-section {
+            height: 100vh;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .brand-container {
+            width: 85%;
+            max-width: 1400px;
+            /* ← FIX: stops stretching on huge screens */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .brand-left {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .brand-left img {
+            width: 60%;
+            max-width: 320px;
+            /* ← FIX: logo doesn't grow endlessly */
+            animation: floatLogo 2s ease-in-out infinite alternate;
+        }
+
+        .brand-left::after {
+            content: "";
+            position: absolute;
+            bottom: 18%;
+            width: 180px;
+            height: 35px;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 50%;
+            filter: blur(5px);
+            z-index: 5;
+            animation: shadowPulse 2s ease-in-out infinite alternate;
+        }
+
+        .brand-right {
+            width: 45%;
+            overflow: visible;
+        }
+
+        .brand-right h1 {
+            font-size: clamp(22px, 3vw, 48px);
+            /* ← FIX: clamp prevents tiny text */
+            color: #52A446;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .brand-right p {
+            font-size: clamp(14px, 1.2vw, 20px);
+            /* ← FIX: scales properly */
+            color: #333;
+            line-height: 1.8;
+            text-align: right;
+        }
+
+        .brand-tagline {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            left: 0;
+            font-size: clamp(13px, 1.3vw, 22px);
+            /* ← FIX */
+            color: #52A446;
+            font-weight: 600;
+            line-height: 1.6;
+            text-align: right;
+            white-space: nowrap;
+            padding-right: 7.5%;
+        }
+
+        @keyframes floatLogo {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-25px);
+            }
+        }
+
+        @keyframes shadowPulse {
+            0% {
+                transform: scale(1.2);
+                opacity: 0.15;
+            }
+
+            100% {
+                transform: scale(0.8);
+                opacity: 0.10;
+            }
+        }
+
+        /* ================= WHAT WE DO ================= */
+        .what-section {
+            height: 101vh;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Commercial-Drinks/refs/heads/main/bg.png") no-repeat center / cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .what-container {
+            position: sticky;
+            top: 90px;
+            height: 100vh;
+            width: 100%;
+            overflow: visible;
+        }
+
+        .what-title {
+            position: absolute;
+            top: clamp(60px, 9vh, 110px);
+            left: clamp(30px, 4vw, 80px);
+            font-size: clamp(36px, 6vw, 96px);
+            font-weight: 800;
+            color: white;
+            z-index: 5;
+        }
+
+        .what-text {
+            position: absolute;
+            top: clamp(140px, 20vh, 260px);
+            left: clamp(30px, 4vw, 80px);
+            width: clamp(260px, 30vw, 480px);
+            color: white;
+            line-height: 1.7;
+            font-size: clamp(13px, 1.3vw, 20px);
+            z-index: 5;
+        }
+
+        .what-images {
+            position: absolute;
+            right: -120%;
+            top: 0;
+            height: 100%;
+            width: 70%;
+            display: flex;
+            transition: all 4s ease;
+            z-index: 1;
+        }
+
+        .what-images.expand {
+            width: 100%;
+            right: 0;
+            transition: all 0.1s ease;
+            z-index: 5;
+        }
+
+        .image-card {
+            position: relative;
+            width: 33.33%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.7s ease;
+        }
+
+        .image-card.active {
+            width: 90%;
+            z-index: 10;
+        }
+
+        .image-card.shrink {
+            width: 10%;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .image-card:nth-child(2) img {
+            object-position: 25% center;
+        }
+
+        .image-text {
+            position: absolute;
+            bottom: clamp(20px, 4vh, 50px);
+            left: clamp(16px, 2vw, 36px);
+            color: white;
+            font-size: clamp(16px, 1.8vw, 30px);
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .image-card.active .image-text {
+            opacity: 0;
+            transform: translateY(30px);
+            pointer-events: none;
+        }
+
+        .image-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-card:hover::after {
+            opacity: 1;
+        }
+
+        .image-card.active::after,
+        .image-card.active:hover::after {
+            opacity: 0;
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: clamp(200px, 50vh, 420px);
+            left: clamp(20px, 3vw, 50px);
+            width: clamp(240px, 28vw, 420px);
+            color: white;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .card-content h2 {
+            position: relative;
+            top: 70px;
+            font-size: clamp(28px, 3.5vw, 60px);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+        }
+
+        .card-content h4 {
+            position: relative;
+            top: 70px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            font-size: clamp(14px, 1.6vw, 28px);
+            letter-spacing: 2px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-content p {
+            position: relative;
+            top: 70px;
+            font-size: clamp(11px, 0.95vw, 16px);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+        }
+
+        .image-card.active .card-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .what-section.bw-mode::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            filter: grayscale(100%);
+            transition: filter 2.5s ease;
+            transition-delay: 1.8s;
+            z-index: 0;
+        }
+
+        .what-section.bw-mode .image-card img {
+            filter: grayscale(100%);
+        }
+
+        .what-section.bw-mode .image-card:hover img,
+        .what-section.bw-mode .image-card.active img {
+            filter: grayscale(0%);
+        }
+
+        /* ================= GREENSIRI PROMISE — FIX ================= */
+        .promise-section {
+            min-height: 100vh;
+            background: black;
+            padding: clamp(60px, 10vh, 140px) clamp(30px, 5vw, 100px);
+        }
+
+
+
+        .promise-title {
+            font-size: clamp(28px, 4vw, 64px);
+            /* ← FIX */
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .promise-text {
+            color: #ccc;
+            font-size: clamp(14px, 1.1vw, 20px);
+            /* ← FIX */
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 70px;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            /* ← FIX: grid stops stretching */
+        }
+
+        .promise-card {
+            background: white;
+            padding: clamp(20px, 2.5vw, 42px);
+            border-radius: 10px;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promise-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: #4cff6a;
+            transition: width 0.7s ease;
+        }
+
+        .promise-card:hover::before {
+            width: 100%;
+        }
+
+        .promise-card h3 {
+            font-size: clamp(15px, 1.2vw, 22px);
+            /* ← FIX */
+            margin-bottom: 12px;
+        }
+
+        .promise-card p {
+            font-size: clamp(12px, 0.9vw, 16px);
+            /* ← FIX */
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* FAQ SECTION */
+
+        .faq-section {
+            min-height: 100vh;
+            padding: 140px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            background: #fafafa;
+        }
+
+        .faq-left h2 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .faq-left p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 22px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            transition: 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            color: #666;
+            line-height: 1.7;
+            transition: 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .faq-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        /* ================= STORIES OF GREENSIRI ================= */
+        .stories-section {
+            height: 100vh;
+            background: #0c0c0c;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stories-title {
+            position: absolute;
+            top: clamp(30px, 6vh, 80px);
+            left: clamp(40px, 5vw, 100px);
+            color: white;
+            font-size: clamp(28px, 4vw, 64px);
+            font-weight: 800;
+            z-index: 10;
+        }
+
+        .story-img {
+            position: absolute;
+        }
+
+        .story-img img {
+            width: 200px;
+            height: 300px;
+        }
+
+        .story1 img {
+            width: 300px;
+            height: 190px;
+        }
+
+        .story2 img {
+            width: 250px;
+            height: 350px;
+        }
+
+        .story3 img {
+            width: 380px;
+            height: 160px;
+        }
+
+        .story4 img {
+            width: 300px;
+            height: 130px;
+        }
+
+        .story5 img {
+            width: 250px;
+            height: 120px;
+        }
+
+        .story6 img {
+            width: 220px;
+            height: 280px;
+        }
+
+        .story7 img {
+            width: 250px;
+            height: 220px;
+        }
+
+        .story8 img {
+            width: 280px;
+            height: 280px;
+        }
+
+        .story9 img {
+            width: 480px;
+            height: 80px;
+        }
+
+        .story1 {
+            top: 20%;
+            left: 6%;
+            width: 30vw;
+            height: 26vh;
+        }
+
+        .story2 {
+            top: 45%;
+            left: 29%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story3 {
+            top: 55%;
+            left: 49%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story4 {
+            top: 18%;
+            left: 30%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story5 {
+            top: 54%;
+            left: 78%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story6 {
+            top: 8%;
+            left: 78%;
+            width: 17vw;
+            height: 16vh;
+        }
+
+        .story7 {
+            top: 10%;
+            left: 55%;
+            width: 25vw;
+            height: 26vh;
+        }
+
+        .story8 {
+            bottom: 28%;
+            left: 5%;
+            width: 25vw;
+            height: 16vh;
+        }
+
+        .story9 {
+            bottom: 1%;
+            left: 60%;
+            width: 25vw;
+            height: 16vh;
+        }
+
+        /* ================= HAPPY FACES — FIX ================= */
+        .faces-section {
+            height: 100vh;
+            position: relative;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/hfbg.png") no-repeat center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding-top: clamp(80px, 12vh, 160px);
+            overflow: hidden;
+        }
+
+        .faces-title {
+            color: white;
+            font-size: clamp(28px, 4vw, 64px);
+            font-weight: 800;
+            text-align: right;
+            padding-right: clamp(30px, 5vw, 100px);
+        }
+
+        .faces-text {
+            color: #ddd;
+            max-width: clamp(300px, 45vw, 750px);
+            margin-top: clamp(8px, 1.2vh, 20px);
+            line-height: 1.7;
+            font-size: clamp(12px, 1.1vw, 18px);
+            text-align: right;
+            padding-right: clamp(30px, 5vw, 100px);
+        }
+
+        .faces-slider {
+            position: absolute;
+            bottom: clamp(120px, 29vh, 260px);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .faces-track {
+            display: flex;
+            gap: clamp(14px, 2vw, 36px);
+            width: max-content;
+        }
+
+        .faces-slider:hover .faces-track {
+            animation-play-state: paused;
+        }
+
+        .face-card {
+            width: clamp(200px, 24vw, 350px);
+            height: clamp(100px, 14vh, 200px);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .face-card img {
+            width: 100%;
+            height: 100%;
+
+            transition: transform 0.9s ease;
+        }
+
+        .face-card:hover img {
+            transform: scale(1.2);
+        }
+
+        .reverse {
+            bottom: clamp(20px, 4vh, 60px);
+        }
+
+        .reverse-track {
+            display: flex;
+            gap: clamp(14px, 2vw, 36px);
+            width: max-content;
+            flex-shrink: 0;
+        }
+
+        .reverse:hover .reverse-track {
+            animation-play-state: paused;
+        }
+
+        /* ================= VIDEO POPUP ================= */
+        .video-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.7s ease;
+        }
+
+        .video-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .video-container {
+            width: 70%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .video-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* ================= STRIP GALLERY ================= */
+        .strip-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/background.png") no-repeat center center/cover;
+        }
+
+        .strip-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .strip-gallery {
+            display: flex;
+            gap: clamp(10px, 1.4vw, 24px);
+            position: relative;
+            z-index: 2;
+            transform: translateX(clamp(60px, 10vw, 180px));
+        }
+
+        .strip-card {
+            width: clamp(190px, 18vw, 270px);
+            height: clamp(300px, 55vh, 600px);
+            overflow: hidden;
+            border-radius: 2px;
+            position: relative;
+            transition: 0.6s ease;
+        }
+
+        .strip-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+            transition: 4s ease;
+        }
+
+        .strip-card:nth-child(odd) {
+            animation: stripFloatUp 6s ease-in-out infinite;
+        }
+
+        .strip-card:nth-child(even) {
+            animation: stripFloatDown 6s ease-in-out infinite;
+        }
+
+        @keyframes stripFloatUp {
+
+            0%,
+            100% {
+                transform: translateY(-20px);
+            }
+
+            50% {
+                transform: translateY(25px);
+            }
+        }
+
+        @keyframes stripFloatDown {
+
+            0%,
+            100% {
+                transform: translateY(25px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .strip-card:hover {
+            width: clamp(150px, 18vw, 300px);
+        }
+
+        .strip-card:hover img {
+            transform: scale(1);
+        }
+
+        .strip-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: clamp(12px, 1.3vw, 22px);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-align: center;
+            z-index: 3;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+            transition: 0.4s;
+        }
+
+        .strip-card:hover .strip-title {
+            transform: translate(-50%, -60%);
+            font-size: clamp(14px, 1.5vw, 24px);
+        }
+
+        .menu-card {
+            position: absolute;
+            left: clamp(40px, 8vw, 140px);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            line-height: 1.1;
+
+        }
+
+        .menu-card ul {
+            list-style: none;
+        }
+
+        .menu-card li {
+            color: white;
+            font-size: clamp(14px, 1.4vw, 24px);
+            margin: clamp(12px, 1.8vh, 26px) 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.9s ease, color 0.35s ease;
+        }
+
+        .menu-card li:hover {
+            transform: translateY(-6px);
+            color: #9cff9c;
+        }
+
+        /* ================= SOCIAL FLOATING ================= */
+
+        /* ===============================================================
+           ENHANCED SOCIAL FLOATING SIDEBAR WITH INTERACTIVE SECTIONS
+           ============================================================ */
+
+        /*
+         * MAIN CONTAINER
+         * - Fixed position on right side
+         * - Stays above content but below nav (z-index: 999)
+         * - Stops before footer area
+         */
+        .social-floating {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 99;
+            /* CUSTOMIZE: Adjust top position if needed */
+            /* CUSTOMIZE: Change right: 0 to add spacing from edge */
+        }
+
+        /*
+         * PNG BACKGROUND IMAGE CONTAINER
+         * - Contains the full vertical social icons PNG
+         * - Height and width can be adjusted based on your PNG dimensions
+         */
+        .social-bg-image {
+            position: relative;
+            width: 50px;
+            /* CUSTOMIZE: Adjust based on PNG width */
+            height: 450px;
+            /* CUSTOMIZE: Adjust based on PNG height */
+            background-image: url("https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Side-line-contact2.png.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* CUSTOMIZE: Change PNG URL above to your image */
+        }
+
+        /*
+         * INDIVIDUAL CLICKABLE SECTIONS
+         * - Each section is a clickable overlay on part of the PNG
+         * - Positioned absolutely within the container
+         * - Invisible by default (transparent)
+         */
+        .social-section {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* CUSTOMIZE: Add background color to see section boundaries during setup */
+            /* background: rgba(255, 0, 0, 0.2); */
+        }
+
+        /* Hover effect - slight scale */
+        .social-section:hover {
+            transform: scale(1.05);
+        }
+
+        /*
+         * HOVER TEXT LABEL
+         * - Hidden by default (opacity 0, translateX)
+         * - Slides in from left on hover
+         * - Positioned to the left of the icon
+         */
+        .social-label {
+            position: absolute;
+            right: 60px;
+            /* CUSTOMIZE: Adjust distance from icon */
+            top: 50%;
+            transform: translateY(-50%) translateX(20px);
+
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            /* CUSTOMIZE: Change colors, padding, font size */
+
+            box-shadow: none;
+        }
+
+        /* Arrow pointing to icon */
+        .social-label::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 8px solid rgba(0, 0, 0, 0.85);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            /* CUSTOMIZE: Change arrow color to match label background */
+        }
+
+        /* Show label on hover */
+        .social-section:hover .social-label {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Light background override (about + faq) */
+        body.light-labels .social-label {
+
+            color: #52A446;
+
+        }
+
+        body.light-labels .social-label::after {
+            border-left: 8px solid black;
+        }
+
+        /*
+         * SECTION POSITIONS
+         * - Adjust these values based on where each icon is in your PNG
+         * - top: distance from top of container
+         * - height: height of clickable area
+         */
+
+        /* Section 1: "ENQUIRY NOW" text at top */
+        .social-enquiry {
+            top: 50%;
+            ;
+            height: 25%;
+            /* CUSTOMIZE: Adjust based on PNG layout */
+        }
+
+        /* Section 2: WhatsApp icon */
+        .social-whatsapp {
+            top: 82%;
+            /* CUSTOMIZE: Starts where enquiry ends */
+            height: 10%;
+            /* CUSTOMIZE: Height of WhatsApp section */
+
+        }
+
+        /* Section 3: Call/Phone icon */
+        .social-call {
+            top: 73%;
+            /* CUSTOMIZE: Starts where WhatsApp ends */
+            height: 10%;
+            /* CUSTOMIZE: Height of call section */
+
+        }
+
+        /* Section 4: Bottom contact icon */
+        .social-contact {
+            top: 89%;
+            /* CUSTOMIZE: Starts where call ends */
+            height: 15%;
+            /* CUSTOMIZE: Height of contact section */
+
+        }
+
+        /*
+         * RESPONSIVE ADJUSTMENTS
+         * - Hide or adjust on mobile devices
+         */
+        @media (max-width: 768px) {
+            .social-floating {
+                right: 5px;
+                /* CUSTOMIZE: Adjust mobile positioning */
+                /* Or hide completely: display: none; */
+            }
+
+            .social-bg-image {
+                width: 40px;
+                /* CUSTOMIZE: Smaller on mobile */
+                height: 360px;
+                /* CUSTOMIZE: Proportional height */
+            }
+
+            .social-label {
+                font-size: 11px;
+                /* CUSTOMIZE: Smaller text on mobile */
+                padding: 6px 12px;
+                right: 50px;
+            }
+        }
+
+        /* Hide social bar when footer is in view */
+        body.footer-visible .social-floating {
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        /* ================= FOOTER ================= */
+        /* --- FOOTER --- */
+        /* FOOTER */
+        footer {
+            background-color: #0b0b0b;
+            color: white;
+            padding: 60px 8%;
+            min-height: 30vh;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+            padding: 15px 40px;
+            border-right: 2px solid #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-col:first-child {
+            padding-left: 0;
+            flex: 1.5;
+        }
+
+        .footer-col:nth-child(1),
+        .footer-col:nth-child(2) {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .footer-col:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .footer-bold {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            line-height: 1.6;
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        .footer-contact-item i {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .footer-logo {
+            width: 150px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-tagline {
+            font-size: 9px;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .footer-subscribe h5,
+        .footer-social h5 {
+            font-size: 11px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-social h5 {
+            font-size: 13px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscribe-form input {
+            background: transparent;
+            border: 1px solid #fff;
+            padding: 8px 12px;
+            color: white;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .subscribe-form button {
+            background: transparent;
+            border: 1px solid #fff;
+            padding: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .subscribe-form button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .subscribe-note {
+            font-size: 8px;
+            color: #fff;
+            margin-top: 5px;
+            white-space: nowrap;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-social-icons a {
+            width: 36px;
+            height: 36px;
+            box-shadow: 0 0 0 1.5px #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social-icons a:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 0 1.5px #fff;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 500;
+        }
+
+
+        /* =================================================
+           BIG SCREEN BREAKPOINTS
+           1440px  = large laptop / standard desktop
+           1920px  = full HD monitor
+           2560px  = QHD / ultrawide / 4K
+        ================================================= */
+
+        /* ── 1440px ── */
+        @media (min-width: 1440px) {
+
+            /* NAV */
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .nav-logo img {
+                height: 50px;
+            }
+
+            .nav-dark .nav-logo img {
+                height: 70px;
+            }
+
+            /* HERO TEXT */
+            .main-hero-text h1 {
+                font-size: 80px;
+                letter-spacing: 8px;
+            }
+
+            .main-hero-text p {
+                font-size: 20px;
+            }
+
+            .text-layer h1 {
+                font-size: 68px;
+            }
+
+            /* BRAND / ABOUT */
+            .brand-container {
+                max-width: 1300px;
+            }
+
+            .brand-right h1 {
+                font-size: 42px;
+            }
+
+            .brand-right p {
+                font-size: 18px;
+            }
+
+            .brand-tagline {
+                font-size: 19px;
+            }
+
+            /* WHAT WE DO */
+            .what-title {
+                font-size: 80px;
+                top: 100px;
+                left: 70px;
+            }
+
+            .what-text {
+                font-size: 18px;
+                width: 440px;
+                top: 230px;
+                left: 70px;
+            }
+
+            .image-text {
+                font-size: 26px;
+            }
+
+            .card-content h2 {
+                font-size: 52px;
+            }
+
+            .card-content h4 {
+                font-size: 24px;
+            }
+
+            .card-content p {
+                font-size: 14px;
+            }
+
+            /* PROMISE */
+            .promise-section {
+                padding: 120px 90px;
+            }
+
+            .promise-title {
+                font-size: 56px;
+            }
+
+            .promise-text {
+                font-size: 17px;
+            }
+
+            .promise-grid {
+                gap: 28px;
+                max-width: 1300px;
+            }
+
+            .promise-card {
+                padding: 36px;
+            }
+
+            .promise-card h3 {
+                font-size: 19px;
+            }
+
+            .promise-card p {
+                font-size: 14px;
+            }
+
+            /* STORIES */
+            .stories-title {
+                font-size: 52px;
+            }
+
+            .story1 {
+                width: 22vw;
+                height: 18vh;
+            }
+
+            .story2,
+            .story3,
+            .story4,
+            .story5,
+            .story6,
+            .story7,
+            .story8 {
+                width: 17vw;
+                height: 18vh;
+            }
+
+            /* HAPPY FACES */
+            .faces-title {
+                font-size: 52px;
+            }
+
+            .faces-text {
+                font-size: 16px;
+                max-width: 680px;
+            }
+
+            .face-card {
+                width: 240px;
+                height: 160px;
+            }
+
+            /* GALLERY STRIPS */
+            .strip-card {
+                width: 180px;
+                height: 500px;
+            }
+
+            .strip-title {
+                font-size: 18px;
+            }
+
+            .menu-card li {
+                font-size: 20px;
+            }
+
+            /* FOOTER */
+            .footer-container {
+                max-width: 1300px;
+            }
+
+            .footer-left p,
+            .footer-left h4 {
+                font-size: 14px;
+            }
+
+            .footer-right h4 {
+                font-size: 14px;
+            }
+
+            .footer-center img {
+                max-width: 200px;
+            }
+
+            .footer-input,
+            .subscribe-btn {
+                max-width: 280px;
+            }
+        }
+
+        /* ── 1920px (Full HD) ── */
+        @media (min-width: 1920px) {
+
+            /* NAV */
+            nav {
+                padding: 24px 100px;
+            }
+
+            nav ul {
+                gap: 50px;
+            }
+
+            nav ul li a {
+                font-size: 15px;
+            }
+
+            .nav-logo img {
+                height: 58px;
+            }
+
+            .nav-dark .nav-logo img {
+                height: 80px;
+            }
+
+            /* HERO TEXT */
+            .main-hero-text h1 {
+                font-size: 100px;
+                letter-spacing: 10px;
+            }
+
+            .main-hero-text p {
+                font-size: 24px;
+            }
+
+            .text-layer h1 {
+                font-size: 86px;
+            }
+
+            .explore-btn {
+                font-size: 16px;
+                padding: 10px 28px;
+            }
+
+            /* BRAND / ABOUT */
+            .brand-container {
+                max-width: 1600px;
+            }
+
+            .brand-left img {
+                max-width: 400px;
+            }
+
+            .brand-right h1 {
+                font-size: 52px;
+            }
+
+            .brand-right p {
+                font-size: 20px;
+                line-height: 2;
+            }
+
+            .brand-tagline {
+                font-size: 22px;
+            }
+
+            /* WHAT WE DO */
+            .what-title {
+                font-size: 100px;
+                top: 110px;
+                left: 80px;
+            }
+
+            .what-text {
+                font-size: 20px;
+                width: 500px;
+                top: 270px;
+                left: 80px;
+            }
+
+            .image-text {
+                font-size: 30px;
+                bottom: 50px;
+            }
+
+            .card-content h2 {
+                font-size: 64px;
+            }
+
+            .card-content h4 {
+                font-size: 28px;
+            }
+
+            .card-content p {
+                font-size: 16px;
+            }
+
+            /* PROMISE */
+            .promise-section {
+                padding: 140px 120px;
+            }
+
+            .promise-title {
+                font-size: 68px;
+            }
+
+            .promise-text {
+                font-size: 20px;
+                max-width: 700px;
+            }
+
+            .promise-grid {
+                gap: 36px;
+                max-width: 1660px;
+            }
+
+            .promise-card {
+                padding: 44px;
+            }
+
+            .promise-card h3 {
+                font-size: 22px;
+            }
+
+            .promise-card p {
+                font-size: 15px;
+            }
+
+            /* STORIES */
+            .stories-title {
+                font-size: 64px;
+                top: 70px;
+                left: 100px;
+            }
+
+            .story1 {
+                width: 22vw;
+                height: 20vh;
+            }
+
+            .story2,
+            .story3,
+            .story4,
+            .story5,
+            .story6,
+            .story7,
+            .story8 {
+                width: 17vw;
+                height: 20vh;
+            }
+
+            /* HAPPY FACES */
+            .faces-title {
+                font-size: 64px;
+                padding-right: 120px;
+            }
+
+            .faces-text {
+                font-size: 18px;
+                max-width: 800px;
+                padding-right: 120px;
+            }
+
+            .faces-slider {
+                bottom: 280px;
+            }
+
+            .face-card {
+                width: 300px;
+                height: 200px;
+            }
+
+            .reverse {
+                bottom: 60px;
+            }
+
+            /* GALLERY STRIPS */
+            .strip-card {
+                width: 220px;
+                height: 580px;
+            }
+
+            .strip-gallery {
+                gap: 22px;
+                transform: translateX(200px);
+            }
+
+            .strip-title {
+                font-size: 20px;
+            }
+
+            .menu-card {
+                left: 160px;
+            }
+
+            .menu-card li {
+                font-size: 24px;
+                margin: 26px 0;
+            }
+
+            /* FOOTER */
+            .footer {
+                padding: 100px 120px;
+            }
+
+            .footer-container {
+                max-width: 1700px;
+            }
+
+            .footer-left,
+            .footer-center,
+            .footer-right {
+                max-width: 520px;
+            }
+
+            .footer-left p,
+            .footer-left h4 {
+                font-size: 15px;
+            }
+
+            .footer-right h4 {
+                font-size: 15px;
+            }
+
+            .footer-center img {
+                max-width: 260px;
+            }
+
+            .footer-input,
+            .subscribe-btn {
+                max-width: 320px;
+                font-size: 15px;
+            }
+
+            .social-icons a {
+                width: 44px;
+                height: 44px;
+            }
+
+            .social-icons img {
+                width: 20px;
+            }
+        }
+
+        /* ── 2560px (QHD / 4K) ── */
+        @media (min-width: 2560px) {
+
+            /* NAV */
+            nav {
+                padding: 37px 120px;
+            }
+
+            nav ul {
+                gap: 75px;
+            }
+
+            nav ul li a {
+                font-size: 26px;
+            }
+
+            .nav-logo img {
+                height: 72px;
+            }
+
+            .nav-dark .nav-logo img {
+                height: 100px;
+            }
+
+            /* HERO TEXT */
+            .main-hero-text h1 {
+                font-size: 130px;
+                letter-spacing: 14px;
+            }
+
+            .main-hero-text p {
+                font-size: 30px;
+            }
+
+            .text-layer h1 {
+                font-size: 110px;
+            }
+
+            .explore-btn {
+                font-size: 20px;
+                padding: 14px 36px;
+                letter-spacing: 3px;
+            }
+
+            /* BRAND / ABOUT */
+            .brand-container {
+                max-width: 2200px;
+            }
+
+            .brand-left img {
+                max-width: 520px;
+            }
+
+            .brand-right h1 {
+                font-size: 68px;
+            }
+
+            .brand-right p {
+                font-size: 26px;
+                line-height: 2.1;
+            }
+
+            .brand-tagline {
+                font-size: 28px;
+            }
+
+            /* WHAT WE DO */
+            .what-title {
+                font-size: 130px;
+                top: 130px;
+                left: 120px;
+            }
+
+            .what-text {
+                font-size: 26px;
+                width: 640px;
+                top: 340px;
+                left: 120px;
+            }
+
+            .image-text {
+                font-size: 38px;
+                bottom: 60px;
+                left: 40px;
+            }
+
+            .card-content h2 {
+                font-size: 82px;
+            }
+
+            .card-content h4 {
+                font-size: 36px;
+            }
+
+            .card-content p {
+                font-size: 20px;
+            }
+
+            /* PROMISE */
+            .promise-section {
+                padding: 180px 160px;
+            }
+
+            .promise-title {
+                font-size: 88px;
+            }
+
+            .promise-text {
+                font-size: 26px;
+                max-width: 900px;
+                margin-bottom: 90px;
+            }
+
+            .promise-grid {
+                gap: 48px;
+                max-width: 2240px;
+            }
+
+            .promise-card {
+                padding: 56px;
+            }
+
+            .promise-card h3 {
+                font-size: 28px;
+            }
+
+            .promise-card p {
+                font-size: 18px;
+            }
+
+            /* STORIES */
+            .stories-title {
+                font-size: 86px;
+                top: 80px;
+                left: 140px;
+            }
+
+            .story1 {
+                width: 20vw;
+                height: 22vh;
+            }
+
+            .story2,
+            .story3,
+            .story4,
+            .story5,
+            .story6,
+            .story7,
+            .story8 {
+                width: 15vw;
+                height: 22vh;
+            }
+
+            /* HAPPY FACES */
+            .faces-title {
+                font-size: 86px;
+                padding-right: 160px;
+            }
+
+            .faces-text {
+                font-size: 24px;
+                max-width: 1100px;
+                padding-right: 160px;
+            }
+
+            .faces-slider {
+                bottom: 360px;
+            }
+
+            .face-card {
+                width: 400px;
+                height: 260px;
+            }
+
+            .reverse {
+                bottom: 80px;
+            }
+
+            /* GALLERY STRIPS */
+            .strip-card {
+                width: 290px;
+                height: 720px;
+            }
+
+            .strip-gallery {
+                gap: 28px;
+                transform: translateX(260px);
+            }
+
+            .strip-title {
+                font-size: 26px;
+            }
+
+            .menu-card {
+                left: 210px;
+            }
+
+            .menu-card li {
+                font-size: 32px;
+                margin: 34px 0;
+            }
+
+
+             /* FAQ SECTION */
+
+        .faq-section {
+            min-height: 100vh;
+            padding: 140px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            background: #fafafa;
+        }
+
+        .faq-left h2 {
+            font-size: 102px;
+            margin-bottom: 20px;
+        }
+
+        .faq-left p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 42px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            font-size: 40px;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            transition: 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            color: #666;
+            line-height: 1.7;
+            transition: 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 12px;
+        }
+
+          .story-img {
+            position: absolute;
+        }
+
+        .story-img img {
+            width: 200px;
+            height: 300px;
+        }
+
+        .story1 img {
+            width: 600px;
+            height: 390px;
+        }
+
+        .story2 img {
+            width: 450px;
+            height: 650px;
+        }
+
+        .story3 img {
+            width: 780px;
+            height: 360px;
+        }
+
+        .story4 img {
+            width: 600px;
+            height: 230px;
+        }
+
+        .story5 img {
+            width: 550px;
+            height: 320px;
+        }
+
+        .story6 img {
+            width: 420px;
+            height: 580px;
+        }
+
+        .story7 img {
+            width: 550px;
+            height: 420px;
+        }
+
+        .story8 img {
+            width: 580px;
+            height: 550px;
+        }
+
+        .story9 img {
+            width: 980px;
+            height: 180px;
+        }
+
+        .story1 {
+            top: 20%;
+            left: 6%;
+            width: 30vw;
+            height: 26vh;
+        }
+
+        .story2 {
+            top: 45%;
+            left: 29%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story3 {
+            top: 55%;
+            left: 49%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story4 {
+            top: 18%;
+            left: 30%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story5 {
+            top: 54%;
+            left: 78%;
+            width: 15vw;
+            height: 16vh;
+        }
+
+        .story6 {
+            top: 8%;
+            left: 78%;
+            width: 17vw;
+            height: 16vh;
+        }
+
+        .story7 {
+            top: 10%;
+            left: 55%;
+            width: 25vw;
+            height: 26vh;
+        }
+
+        .story8 {
+            bottom: 28%;
+            left: 5%;
+            width: 25vw;
+            height: 16vh;
+        }
+
+        .story9 {
+            bottom: 1%;
+            left: 60%;
+            width: 25vw;
+            height: 16vh;
+        }
+
+
+            /* FOOTER */
+            /* TEXT SIZES */
+
+            footer {
+        padding: 100px 10%;
+    }
+
+
+    .footer-bold {
+        font-size: 18px;
+    }
+
+    .footer-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .footer-contact-item {
+        font-size: 16px;
+        gap: 15px;
+    }
+
+    /* ICONS */
+    .footer-contact-item i {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    /* LOGO */
+    .footer-logo {
+        width: 250px;
+    }
+
+    .footer-tagline {
+        font-size: 14px;
+    }
+
+    /* SUBSCRIBE */
+    .footer-subscribe h5,
+    .footer-social h5 {
+        font-size: 18px;
+    }
+
+    .subscribe-form {
+        max-width: 350px;
+    }
+
+    .subscribe-form input {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .subscribe-form button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .subscribe-note {
+        font-size: 13px;
+    }
+
+    /* SOCIAL ICONS */
+     .footer-social-icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 per row */
+        gap: 20px;
+        justify-items: center;
+        max-width: 220px; /* controls width so it wraps nicely */
+        margin: 0 auto;
+    }
+
+    .footer-social-icons a {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+        }
+
+
+        /* ================= MOBILE NAV ================= */
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 2px;
+            background: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* MOBILE */
+        @media (max-width:768px) {
+
+            nav {
+                padding: 16px 20px;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 2001;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+
+                background: rgba(0, 0, 0, 0.35);
+                /* transparent */
+                backdrop-filter: blur(14px);
+                /* blur effect */
+                -webkit-backdrop-filter: blur(14px);
+
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+
+                transform: translateY(-100%);
+                transition: 0.5s ease;
+
+                z-index: 2000;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .nav-menu li a {
+                font-size: 22px;
+                letter-spacing: 2px;
+            }
+
+
+            .brand-section {
+                height: auto;
+                padding: 120px 25px 80px;
+            }
+
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            /* FLOATING LOGO */
+            .brand-left {
+                width: 100%;
+                position: relative;
+            }
+
+            .brand-left img {
+                width: 160px;
+                max-width: none;
+                animation: floatLogoMobile 3s ease-in-out infinite alternate;
+            }
+
+            /* SHADOW UNDER LOGO */
+            .brand-left::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -10px;
+                width: 120px;
+                height: 25px;
+                background: rgba(0, 0, 0, 0.4);
+                border-radius: 50%;
+                filter: blur(6px);
+                animation: shadowPulseMobile 3s ease-in-out infinite alternate;
+            }
+
+            /* TEXT */
+            .brand-right {
+                width: 100%;
+            }
+
+            .brand-right h1 {
+                text-align: center;
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .brand-right p {
+                text-align: center;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            /* TAGLINE */
+            .brand-tagline {
+                position: static;
+                margin-top: 25px;
+                text-align: center;
+                font-size: 13px;
+                white-space: normal;
+                padding: 0;
+            }
+
+            /* FLOAT ANIMATION */
+            @keyframes floatLogoMobile {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                100% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            @keyframes shadowPulseMobile {
+                0% {
+                    transform: translateX(-50%) scale(1);
+                    opacity: 0.25;
+                }
+
+                100% {
+                    transform: translateX(-50%) scale(0.7);
+                    opacity: 0.15;
+                }
+            }
+
+
+            /* WHAT WE DO */
+            .what-section {
+                height: auto;
+                min-height: 100svh;
+                background-attachment: scroll;
+                overflow: hidden;
+            }
+
+            .what-container {
+                position: relative;
+                top: 0;
+                height: auto;
+                min-height: 100svh;
+                overflow: hidden;
+            }
+
+            .what-title {
+                font-size: 36px;
+                top: 70px;
+                left: 20px;
+            }
+
+            .what-text {
+                font-size: 13px;
+                width: calc(100% - 40px);
+                top: 140px;
+                left: 20px;
+            }
+
+            .what-images {
+                position: absolute;
+                bottom: -120%;
+                left: 0;
+                right: 0;
+                top: auto;
+                width: 100%;
+                height: calc(100svh - 200px);
+                margin-top: 0;
+                flex-direction: column;
+                transition: bottom 2.8s ease;
+                z-index: 2;
+            }
+
+            .what-images.expand {
+                width: 100%;
+            }
+
+            .image-card {
+                width: 100%;
+                height: 33.33%;
+            }
+
+            .image-card.active {
+                width: 100%;
+                height: 80%;
+            }
+
+            .image-card.shrink {
+                width: 100%;
+                height: 10%;
+            }
+
+            .card-content {
+                width: calc(100% - 40px);
+                bottom: 200px;
+            }
+
+            .card-content h2 {
+                font-size: 24px;
+                white-space: normal;
+            }
+
+            .card-content h4 {
+                font-size: 13px;
+                white-space: normal;
+            }
+
+            .card-content p {
+                font-size: 11px;
+                white-space: normal;
+            }
+
+            .image-text {
+                font-size: 14px;
+                bottom: 12px;
+                left: 14px;
+            }
+
+            /* PROMISE */
+            .promise-section {
+                padding: 60px 20px 40px;
+            }
+
+            .promise-title {
+                font-size: 28px;
+            }
+
+            .promise-text {
+                font-size: 13px;
+                margin-bottom: 30px;
+            }
+
+            .promise-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .promise-card {
+                padding: 16px;
+            }
+
+            .promise-card h3 {
+                font-size: 13px;
+            }
+
+            .promise-card p {
+                font-size: 11px;
+            }
+
+
+
+            /* STORIES */
+            .faq-section {
+                min-height: auto;
+                padding: 72px 20px 56px;
+                gap: 28px;
+            }
+
+            .faq-left h2 {
+                font-size: 32px;
+                line-height: 1.15;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            .faq-left p {
+                font-size: 14px;
+                line-height: 1.65;
+                text-align: center;
+            }
+
+            .faq-item {
+                padding: 18px 0;
+            }
+
+            .faq-question {
+                font-size: 16px;
+                line-height: 1.5;
+                padding-right: 26px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+                line-height: 1.65;
+            }
+
+            .stories-section {
+                min-height: 100svh;
+            }
+
+            .stories-title {
+                font-size: 26px;
+                top: 90px;
+                left: 20px;
+            }
+
+            .stories-title {
+                left: 50%;
+                top: 34px;
+                width: calc(100% - 32px);
+                transform: translateX(-50%);
+                text-align: center;
+                font-size: 28px;
+                line-height: 1.15;
+            }
+
+            /* ─── Mobile Stories grid layout ─── */
+            .story1 {
+                top: 17%;
+                left: 5%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story2 {
+                top: 17%;
+                left: 56%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story3 {
+                top: 33%;
+                left: 5%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story4 {
+                top: 33%;
+                left: 56%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story5 {
+                top: 49%;
+                left: 5%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story6 {
+                top: 49%;
+                left: 56%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story7 {
+                top: 65%;
+                left: 5%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story8 {
+                top: 65%;
+                left: 56%;
+                width: 39vw;
+                height: 13vh;
+            }
+
+            .story9 {
+            top: 75%;
+                left: 10%;
+                width: 340px;
+            height: 180px;
+            }
+
+            .story-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: visible;
+                border-radius: 0;
+            }
+
+            .story-img img,
+            .story1 img,
+            .story2 img,
+            .story3 img,
+            .story4 img,
+            .story5 img,
+            .story6 img,
+            .story7 img,
+            .story8 img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+
+
+
+
+            /* MOVE FACES SLIDERS UP */
+
+            .faces-slider {
+                bottom: 320px;
+            }
+
+            .reverse {
+                bottom: 180px;
+            }
+
+
+
+            /* GALLERY STRIPS */
+            .strip-gallery {
+                transform: translateX(0);
+                gap: 8px;
+                justify-content: center;
+            }
+
+            .strip-card {
+                width: 70px;
+                height: 200px;
+            }
+
+            .strip-card:hover,
+            .strip-card:active {
+                width: 100px;
+            }
+
+            .strip-title {
+                font-size: 8px;
+                letter-spacing: 0.5px;
+            }
+
+            .menu-card {
+                display: none;
+            }
+
+            /* FOOTER */
+            /* FOOTER FIX */
+            .footer-grid {
+                flex-direction: column;
+            }
+
+            .footer-col {
+                border-right: none;
+                padding: 20px 0;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .footer-text {
+                white-space: normal;
+            }
+
+            .subscribe-note {
+                white-space: normal;
+            }
+
+
+        }
+
+        /*Chat box */
+        /* ================= CHATBOT WIDGET ================= */
+        .chatbot-wrapper {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: none;
+            z-index: 120;
+        }
+
+        .chatbot-wrapper.open {
+            display: flex;
+        }
+
+        .chatbot-window {
+            width: 320px;
+            height: 420px;
+            background: #0f1c18;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            color: #e6f4ec;
+            overflow: hidden;
+            resize: both;
+            min-width: 240px;
+            min-height: 280px;
+        }
+
+        .chatbot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            background: linear-gradient(120deg, #1c3b2f, #164331);
+            cursor: move;
+            user-select: none;
+        }
+
+        .chatbot-title {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .chatbot-title i {
+            color: #7cf2b0;
+        }
+
+        .chatbot-close {
+            background: transparent;
+            border: none;
+            color: #e6f4ec;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .chatbot-body {
+            flex: 1;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: auto;
+            background: linear-gradient(180deg, rgba(14, 31, 25, 0.95), rgba(10, 20, 17, 0.96));
+        }
+
+        .chat-message {
+            max-width: 85%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            line-height: 1.4;
+            font-size: 13px;
+        }
+
+        .chat-message.bot {
+            background: rgba(124, 242, 176, 0.12);
+            border: 1px solid rgba(124, 242, 176, 0.3);
+            align-self: flex-start;
+        }
+
+        .chat-message.user {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            align-self: flex-end;
+        }
+
+        .chatbot-footer {
+            display: flex;
+            gap: 10px;
+            padding: 12px 14px;
+            background: rgba(12, 24, 20, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            color: #e6f4ec;
+            outline: none;
+        }
+
+        .chatbot-send {
+            padding: 0 14px;
+            border: none;
+            border-radius: 10px;
+            background: #7cf2b0;
+            color: #0f1c18;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ================= MOBILE RESPONSIVE STYLES ================= */
+        @media (max-width: 768px) {
+            .chatbot-window {
+                width: 90vw;
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="social-floating">
+    <div class="social-bg-image">
+
+        <!--
+    ══════════════════════════════════════════════════════
+    SECTION 1: ENQUIRY NOW
+    ══════════════════════════════════════════════════════
+    CUSTOMIZE:
+    - Change href to your enquiry page URL
+    - Adjust top/height values to match PNG layout
+    - Modify label text
+    -->
+        <a href="https://vatsalvarma.github.io/Greensiri-Contact/" class="social-section social-enquiry"
+           target="_blank">
+            <div class="social-label">ENQUIRY NOW</div>
+        </a>
+
+        <!--
+    ══════════════════════════════════════════════════════
+    SECTION 2: CALL
+    ══════════════════════════════════════════════════════
+    CUSTOMIZE:
+    - Change phone number in href (9119925552)
+    - This opens phone dialer on mobile/desktop
+    - Adjust position to match call icon in PNG
+    -->
+        <a href="tel:+919511125552" class="social-section social-call">
+            <div class="social-label">CALL NOW</div>
+        </a>
+
+        <!--
+   ══════════════════════════════════════════════════════
+   SECTION 3: WHATSAPP
+   ══════════════════════════════════════════════════════
+   CUSTOMIZE:
+   - Change phone number in href (919999999999)
+   - Modify pre-filled message after &text=
+   - Adjust position to match WhatsApp icon in PNG
+   -->
+        <a href="https://wa.me/919511125552?text=Hello%20Greensiri,%20I'm%20interested%20in%20your%20properties"
+           class="social-section social-whatsapp" target="_blank">
+            <div class="social-label">WHATSAPP</div>
+        </a>
+
+        <a href="#" class="social-section social-contact" id="chatbotToggle" role="button">
+            <div class="social-label">CHAT-BOT</div>
+        </a>
+    </div>
+</div>
+
+<!-- Chatbot widget -->
+<div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header" id="chatbotDragHandle">
+            <div class="chatbot-title">
+                <i class="fa-solid fa-robot"></i>
+                <span>Green Siri</span>
+            </div>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbotMessages">
+            <div class="chat-message bot">Hi, I'm Green Siri. Ask me anything about the project.</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message..."
+                   autocomplete="off">
+            <button class="chatbot-send" id="chatbotSend">Send</button>
+        </div>
+    </div>
+</div>
+<nav>
+
+    <div class="nav-logo">
+        <a href="https://vatsalvarma.github.io/GREENSIRI---prbxxxx/">
+            <img
+                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png">
+        </a>
+    </div>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- MENU -->
+    <ul class="nav-menu">
+        <li><a href="#home" onclick="closeMenu()">HOME</a></li>
+        <li><a href="https://vatsalvarma.github.io/TarniFarms/" onclick="closeMenu()">FARMS</a></li>
+        <li><a href="https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/"
+               onclick="closeMenu()">RESIDENTIALS</a></li>
+        <li><a href="https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/"
+               onclick="closeMenu()">VILLAS</a></li>
+        <li><a href="https://vatsalvarma.github.io/Shot-at-site/">SHOT AT SITE</a></li>
+        <li><a href="https://vatsalvarma.github.io/About-Greensiri-page/">COMPANY</a></li>
+        <li><a href="https://vatsalvarma.github.io/Greensiri-blogs-/">BLOGS</a></li>
+        <li><a href="https://vatsalvarma.github.io/Greensiri-Contact/">CONTACT</a></li>
+    </ul>
+
+</nav>
+
+<!-- ===== FIRST HERO ===== -->
+<section class="main-hero" id="home">
+    <div class="main-hero-text">
+        <h1>LAND TO LEGACY</h1>
+        <p>Where Nature Meets Smart Investment</p>
+    </div>
+</section>
+
+<section class="hero farmhouse" id="next">
+    <div class="sky"></div>
+    <button class="explore-btn farm-btn"
+            onclick="openProject('https://vatsalvarma.github.io/TarniFarms/')">EXPLORE</button>
+    <div class="text-layer">
+        <h1>FARMHOUSE PLOTS</h1>
+    </div>
+    <div class="image-layer"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/farmhouselayer1.png">
+    </div>
+</section>
+
+<section class="hero residence" id="residence">
+    <div class="sky residence-sky"></div>
+    <button class="explore-btn res-btn"
+            onclick="openProject('https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/')">DISCOVER</button>
+    <div class="text-layer">
+        <h1>RESIDENTIAL PLOTS</h1>
+    </div>
+    <div class="image-layer"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Foreground.png">
+    </div>
+</section>
+
+<section class="hero" id="villa">
+    <div class="sky villa-sky"></div>
+    <button class="explore-btn villa-btn"
+            onclick="openProject('https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/')">EXPERIENCE</button>
+    <div class="text-layer">
+        <h1>VILLA PLOTS</h1>
+    </div>
+    <div class="image-layer"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/villalayer1.png">
+    </div>
+</section>
+
+<!-- ================= BRAND SECTION ================= -->
+<section class="brand-section" id="about">
+    <div class="brand-container">
+        <div class="brand-left">
+            <img src="https://i.ibb.co/HTvXtyPR/about-us.png" alt="G Logo">
+        </div>
+        <div class="brand-right">
+            <h1>ABOUT GREENSIRI</h1>
+            <p>
+                At Greensiri, real estate is more than land and buildings - it is
+                about creating inspiring spaces, nurturing communities, and
+                enriching lives. We believe development should not only
+                generate financial growth but also foster environmental
+                harmony and long-term prosperity.
+            </p>
+            <div class="brand-tagline">
+                NATURE + WEALTH = GREENSIRI &nbsp;|&nbsp; Where Green is Nature and Siri is Wealth.
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= WHAT WE DO ================= -->
+<section class="what-section" id="projects">
+    <div class="what-container">
+        <h1 class="what-title">WHAT WE DO?</h1>
+        <p class="what-text">Turning land into living ecosystems where investment, wellbeing, and future growth come
+            together.</p>
+        <div class="what-images">
+
+            <div class="image-card">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Commercial-Drinks/refs/heads/main/villa.png">
+                <div class="image-text">
+                    <h1>01</h1> Villa <br> Projects
+                </div>
+                <div class="card-content">
+                    <h2>VILLA PROJECTS</h2>
+                    <h4>Live Luxuriously, Breathe Naturally</h4>
+                    <p>Villa communities in serene locations offering luxury, privacy, and sustainable living.
+                        Enjoy<br>premium amenities, secure gated comfort, fresh air, organic food, and strong
+                        long-term<br>appreciation for your family's future</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <img
+                        src="https://raw.githubusercontent.com/vatsalvarma/Commercial-Drinks/refs/heads/main/farmhouse.png">
+                <div class="image-text">
+                    <h1>02</h1> Farmhouse <br> Projects
+                </div>
+                <div class="card-content">
+                    <h2>FARMHOUSE PROJECTS</h2>
+                    <h4>RELAX, REFRESH, RECONNECT</h4>
+                    <p>Greensiri creates a gated farmhouse community with managed farmlands that blends
+                        luxury<br>with an Indian Heritage lifestyle through resort-themed farmland plots -
+                        reconnecting you to<br>your village roots while delivering lasting returns in health and
+                        wealth.</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <img src="https://i.ibb.co/d4xTB5Hd/RESDIENTIAL-1-4.png">
+                <div class="image-text">
+                    <h1>03</h1> Residential <br> Layouts
+                </div>
+                <div class="card-content">
+                    <h2>RESDIENTIAL PROJECTS</h2>
+                    <h4>Connected Living. Secure Investment. Future Growth</h4>
+                    <p>Greensiri Residential Layouts offer excellent connectivity, strong future appreciation,
+                        and<br>eco-friendly avenues, enhanced by modern amenities and secure community living in
+                        a<br>prime high-growth corridor.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= GREENSIRI PROMISE ================= -->
+<section class="promise-section">
+    <h1 class="promise-title">Greensiri Promise</h1>
+    <div class="promise-grid">
+        <div class="promise-card">
+            <h3>Prime Locations</h3>
+            <p>Carefully selected land parcels with strong growth potential and future connectivity.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Clear Titles</h3>
+            <p>Every property comes with transparent documentation and secure ownership.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Eco Planning</h3>
+            <p>Projects designed with green landscapes and environmentally conscious planning.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Long Term Value</h3>
+            <p>Investment opportunities focused on sustainable appreciation.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Modern Layouts</h3>
+            <p>Thoughtfully planned spaces that combine functionality and beauty.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Community Living</h3>
+            <p>Spaces that encourage peaceful living and vibrant communities.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Trusted Development</h3>
+            <p>Backed by strong planning and reliable project execution.</p>
+        </div>
+        <div class="promise-card">
+            <h3>Future Ready</h3>
+            <p>Projects aligned with future infrastructure and urban growth.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="faq-section" id="faq">
+    <div class="faq-left">
+        <h2>Frequently Asked Questions</h2>
+        <p>
+            Everything you need to know before investing with Greensiri. Clear answers. Complete
+            transparency.
+        </p>
+    </div>
+
+    <div class="faq-right">
+        <div class="faq-item active">
+            <div class="faq-question">Are the lands legally clear?</div>
+            <div class="faq-answer">
+                Yes, all projects have clear titles and verified documentation.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you provide bank loan support?</div>
+            <div class="faq-answer">
+                We assist buyers with financial guidance and loan support partners.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is this good for long term investment?</div>
+            <div class="faq-answer">
+                Our projects are located in high-growth corridors ensuring appreciation.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I visit the site before booking?</div>
+            <div class="faq-answer">
+                Yes, site visits are encouraged and can be scheduled anytime.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= STORIES OF GREENSIRI ================= -->
+<section class="stories-section">
+    <h1 class="stories-title">Stories of Greensiri</h1>
+    <div class="story-img story1"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Kavya%20Reddy.png">
+    </div>
+    <div class="story-img story2"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Karan%20Malhotra.png">
+    </div>
+    <div class="story-img story3"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Neha%20Agarwal.png">
+    </div>
+    <div class="story-img story4"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rahul%20Verma.png">
+    </div>
+    <div class="story-img story5"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vikram%20Desai.png">
+    </div>
+    <div class="story-img story6"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Varun%20Saxena.png">
+    </div>
+    <div class="story-img story7"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rohan%20Mehta.png">
+    </div>
+    <div class="story-img story8"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Ananya%20Gupta.png">
+    </div>
+    <div class="story-img story9"><img
+            src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/tag.png"></div>
+</section>
+
+<!-- ================= HAPPY FACES ================= -->
+<section class="faces-section" id="happy">
+
+    <h1 class="faces-title">Happy Faces of Greensiri</h1>
+    <p class="faces-text">Our journey is measured not only in projects but in the smiles of families who found their
+        dream spaces with us. Every success story reflects our promise of trust and growth.</p>
+
+    <!-- FORWARD SLIDER -->
+    <div class="faces-slider">
+        <div class="faces-track" id="forwardTrack">
+            <!-- SET A: 4 cards -->
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg">
+            </div>
+
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg">
+            </div>
+            <!-- SET B: duplicate -->
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png">
+            </div>
+
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- REVERSE SLIDER -->
+    <div class="faces-slider reverse">
+        <div class="reverse-track" id="reverseTrack">
+            <!-- SET A -->
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=RWqNzu-ZthU')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=__kqGVHxFVs')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Rainwater%20Harvesting.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=jlSrhTs60SI')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Model%20house.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=Muh0k3u3aD0')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Sankranti%202026.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=HB2vuYTQW1Y')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarini%20Farms%20%26%20Resorts%20%20%2040L%20Investment%20%20%E2%82%B920K%20Monthly%20Returns!.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=iVmhbveneeM')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=cL1UiNU5-Jk')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Diwali%20celebration%20at%20corporate%20office.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=83h_KVBSgWg')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20tarini%20farm%20development.jpg">
+            </div>
+
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=l0i45Get_Oo')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Oxygen%20trees.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=CcaOL4s2clE')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Tarani%20serenity.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=VJs4N_Lynyo')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Tarani%20Farms%20Trailer.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ROwy2lWjQEI')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Independence%20day.jpg">
+            </div>
+            <!-- SET B: duplicate -->
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=DLB622H_omc')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Way%20to%20greensiri%20corporate%20office.jpg">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=z8L3Kf52s4g')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Corporate%20office.jpg">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=FW9A2ceXncY')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Why%20invest%20in%20greensiri.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=25kWUS3ERT0')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20video.png">
+            </div>
+
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=9gONxh0mC1g')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Vote%20for%20your%20future.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=ASg6j-V1TkY')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Greensiri%20Official%20teaser.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://youtu.be/ASg6j-V1TkY?si=TtXRM-fWAEECfQcN')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/HF3foreground%203.png">
+            </div>
+            <div class="face-card" onclick="openVideo('https://www.youtube.com/watch?v=F9yiUezyLuc')"><img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Welcome%20to%20greensiri%20farmlands.png">
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO POPUP -->
+<div class="video-popup" id="videoPopup">
+    <div class="video-container">
+        <div class="video-close" onclick="closeVideo()">✕</div>
+        <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- ================= STRIP GALLERY ================= -->
+<section class="strip-section" id="gallery">
+    <div class="strip-gallery">
+        <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Corporate-gallery-greensiri/')">
+            <img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Corporate_1080x1920_1.png">
+            <div class="strip-title">CORPORATE GALLERY</div>
+        </div>
+        <div class="strip-card" onclick="goProject('https://vatsalvarma.github.io/Farm-gallery-greesnsiri/')">
+            <img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Farmhouse_1080x1920_1.png">
+            <div class="strip-title">FARM GALLERY</div>
+        </div>
+        <div class="strip-card"
+             onclick="goProject('https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/')">
+            <img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Residential_1080x1920_1.png">
+            <div class="strip-title">RESIDENTIAL GALLERY</div>
+        </div>
+        <div class="strip-card"
+             onclick="goProject('https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/')">
+            <img
+                    src="https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/Villa_1080x1920_1.png">
+            <div class="strip-title">VILLA GALLERY</div>
+        </div>
+    </div>
+    <div class="menu-card">
+        <ul>
+            <li onclick="openSite('https://vatsalvarma.github.io/Corporate-gallery-greensiri/')">CORPORATE GALLERY</li>
+            <li onclick="openSite('https://vatsalvarma.github.io/Farm-gallery-greesnsiri/')">FARM GALLERY</li>
+            <li onclick="openSite('https://vatsalvarma.github.io/Greensiri-Villa-ComingSoon-page/')">VILLA GALLERY</li>
+            <li onclick="openSite('https://vatsalvarma.github.io/Greensiri-Residential-Coming-soon/')">RESIDENTIAL GALLERY</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <span class="footer-bold">GREENSIRI INFRA LLP</span>
+            <p class="footer-text">
+                130/2, 3RD FLOOR, OMKARA BUILDING,<br>
+                INTERNATIONAL AIRPORT ROAD, NEHRU NAGAR,<br>
+                YELAHANKA, BENGALURU - 64
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <a href="tel:+919511125552" class="footer-contact-item" style="color: white; text-decoration: none;">
+                <i class="fa-solid fa-phone"></i>
+                +91 95111 25552
+            </a>
+            <a href="mailto:contact@greensiri.in" class="footer-contact-item"
+               style="color: white; text-decoration: none;">
+                <i class="fa-regular fa-envelope"></i>
+                contact@greensiri.in
+            </a>
+        </div>
+
+        <div class="footer-col">
+            <div>
+                <img src="https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/Asset%2011X.png"
+                     class="footer-logo">
+            </div>
+            <p class="footer-tagline"></p>
+        </div>
+
+        <div class="footer-col footer-subscribe">
+            <h5>DO YOU HAVE ANY QUERY?</h5>
+            <form class="subscribe-form">
+                <input type="email" placeholder="example@email.com" required
+                       oninvalid="this.setCustomValidity('please enter valid email address')"
+                       oninput="this.setCustomValidity('')">
+                <button type="submit">SUBSCRIBE</button>
+            </form>
+            <div class="subscribe-note">
+                PLEASE FEEL FREE TO SHARE ANY QUERIES YOU HAVE
+            </div>
+        </div>
+
+        <div class="footer-col footer-social">
+            <h5>SOCIAL MEDIA LINKS</h5>
+            <div class="footer-social-icons">
+                <a href="https://www.facebook.com/greensiriproperties" target="_blank"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/greensiri_properties" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Greensiri" target="_blank"><i
+                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://in.pinterest.com/greensiriproperties" target="_blank"><i
+                        class="fa-brands fa-pinterest-p"></i></a>
+                <a href="https://www.linkedin.com/company/greensiri-infra-llp/posts/?feedView=all"
+                   target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://wa.me/919511125552?text=" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            &copy; Copyright 2026
+            <span class="highlight">GREENSIRI PROPERTIES</span>.
+            All Rights Reserved |
+
+            Website Design by
+            <a href="https://prizmabrixx.com/" target="_blank" rel="noopener noreferrer" class="highlight">PRIZMABRIXX</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+
+    /* ===== SEAMLESS SLIDER — measures card size at runtime ===== */
+    function setupInfiniteSlider(trackId, reverse) {
+        const track = document.getElementById(trackId);
+        if (!track) return;
+
+        const cards = track.querySelectorAll('.face-card');
+        const half = cards.length / 2;   // 4 original cards
+
+        // Measure the actual rendered card width + gap
+        function getLoopWidth() {
+            const cardW = cards[0].offsetWidth;
+            const style = window.getComputedStyle(track);
+            const gap = parseFloat(style.gap) || 24;
+            return half * (cardW + gap);
+        }
+
+        let loopW = getLoopWidth();
+        let pos = reverse ? -loopW : 0;
+        const speed = 0.6;
+        let paused = false;
+
+        track.parentElement.addEventListener('mouseenter', () => paused = true);
+        track.parentElement.addEventListener('mouseleave', () => paused = false);
+
+        // Recalculate on resize
+        window.addEventListener('resize', () => { loopW = getLoopWidth(); });
+
+        function tick() {
+            if (!paused) {
+                pos += reverse ? speed : -speed;
+                if (!reverse && pos <= -loopW) pos += loopW;
+                if (reverse && pos >= 0) pos -= loopW;
+                track.style.transform = `translateX(${pos}px)`;
+            }
+            requestAnimationFrame(tick);
+        }
+
+        track.style.animation = 'none';
+        requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('load', () => {
+        setupInfiniteSlider('forwardTrack', false);
+        setupInfiniteSlider('reverseTrack', true);
+    });
+
+    /* ===== FULL PAGE SNAP SCROLL ===== */
+    const snapTargets = [...document.querySelectorAll("section"), document.querySelector("footer")];
+    let isSnapping = false;
+
+    function getCurrentIndex() {
+        let idx = 0;
+        snapTargets.forEach((el, i) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) idx = i;
+        });
+        return idx;
+    }
+
+    window.addEventListener("wheel", function (e) {
+        if (isSnapping) { e.preventDefault(); return; }
+        const current = getCurrentIndex();
+        let next = e.deltaY > 0 ? current + 1 : current - 1;
+        next = Math.max(0, Math.min(next, snapTargets.length - 1));
+        if (next === current) return;
+        e.preventDefault();
+        isSnapping = true;
+        snapTargets[next].scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => { isSnapping = false; }, 1700);
+    }, { passive: false });
+
+    /* Touch support */
+    /* Touch support */
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    window.addEventListener("touchstart", e => {
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+
+    window.addEventListener("touchend", function (e) {
+        if (isSnapping) return;
+
+        const diff = touchStartY - e.changedTouches[0].clientY;
+        const elapsed = Date.now() - touchStartTime;
+        const velocity = Math.abs(diff) / elapsed;
+
+        /* require either a long swipe OR a fast flick */
+        if (Math.abs(diff) < 40 && velocity < 0.25) return;
+
+        const current = getCurrentIndex();
+        const next = Math.max(0, Math.min(
+            diff > 0 ? current + 1 : current - 1,
+            snapTargets.length - 1
+        ));
+
+        if (next === current) return;
+
+        isSnapping = true;
+        snapTargets[next].scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => { isSnapping = false; }, 1200);
+    }, { passive: true });
+
+    /* ===== NAV LOGO SWAP ===== */
+    const nav = document.querySelector("nav");
+    const aboutSection = document.querySelector("#about");
+    const faqSection = document.querySelector("#faq");
+    const footer = document.querySelector("footer");
+
+    const navLogoImg = document.querySelector(".nav-logo img");
+    const socialBgImage = document.querySelector(".social-bg-image");
+
+    const originalNavLogoSrc = navLogoImg ? navLogoImg.src : "";
+    const originalSocialBgImage = socialBgImage
+        ? getComputedStyle(socialBgImage).backgroundImage
+        : "";
+
+    const darkNavLogoSrc = "https://raw.githubusercontent.com/vatsalvarma/Client-Project-/refs/heads/main/GREENSIRI_color.about.png";
+    const darkSocialBgImage = 'url("https://raw.githubusercontent.com/vatsalvarma/GREENSIRI---prbxxxx/refs/heads/main/side%20social%20light%20green%20COLOR%20CODE%2052A446.png")';
+
+    window.addEventListener("scroll", () => {
+
+        const aboutRect = aboutSection.getBoundingClientRect();
+        const faqRect = faqSection.getBoundingClientRect();
+        const footerRect = footer ? footer.getBoundingClientRect() : null;
+
+        const isAboutActive = aboutRect.top <= 80 && aboutRect.bottom >= 80;
+        const isFaqActive = faqRect.top <= 80 && faqRect.bottom >= 80;
+        const isFooterVisible = footerRect
+            ? footerRect.top < window.innerHeight && footerRect.bottom >= 0
+            : false;
+
+        if (isAboutActive || isFaqActive) {
+            nav.classList.add("nav-dark");
+            document.body.classList.add("light-labels");
+
+            if (navLogoImg) navLogoImg.src = darkNavLogoSrc;
+            if (socialBgImage) socialBgImage.style.backgroundImage = darkSocialBgImage;
+
+        } else {
+            nav.classList.remove("nav-dark");
+            document.body.classList.remove("light-labels");
+
+            if (navLogoImg && originalNavLogoSrc)
+                navLogoImg.src = originalNavLogoSrc;
+
+            if (socialBgImage && originalSocialBgImage)
+                socialBgImage.style.backgroundImage = originalSocialBgImage;
+        }
+
+        document.body.classList.toggle("footer-visible", isFooterVisible);
+    });
+
+    /* ===== PARALLAX ===== */
+    /* ===== PARALLAX — rAF throttled, no scale on mobile ===== */
+    let parallaxTicking = false;
+    window.addEventListener("scroll", () => {
+        if (!parallaxTicking) {
+            requestAnimationFrame(() => {
+                const isMob = window.innerWidth <= 768;
+                document.querySelectorAll(".hero").forEach(section => {
+                    const sky = section.querySelector(".sky");
+                    const image = section.querySelector(".image-layer");
+                    const scroll = window.scrollY;
+                    const offset = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scroll >= offset - height && scroll <= offset + height) {
+                        const rel = scroll - offset;
+                        if (isMob) {
+                            /* no scale on mobile — causes jitter and repaint */
+                            if (sky) sky.style.transform = `translateY(${rel * 0.3}px)`;
+                            if (image) image.style.transform = `translateY(${rel * 0.5}px)`;
+                        } else {
+                            if (sky) sky.style.transform = `translateY(${rel * 0.3}px) scale(${1 + rel * 0.0005})`;
+                            if (image) image.style.transform = `translateY(${rel * 0.5}px) scale(${1 + rel * 0.0008})`;
+                        }
+                    }
+                });
+                parallaxTicking = false;
+            });
+            parallaxTicking = true;
+        }
+    }, { passive: true });
+    /* ===== WHAT WE DO SCROLL ===== */
+    let imagesTriggered = false;
+    window.addEventListener("scroll", () => {
+        const section = document.querySelector(".what-section");
+        const images = document.querySelector(".what-images");
+        const rect = section.getBoundingClientRect();
+        const onScreen = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (onScreen) {
+            let progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+            if (progress > 0.2) {
+                if (window.innerWidth <= 768) {
+                    images.style.bottom = "0";
+                } else {
+                    images.style.right = "0";
+                }
+            }
+        } else {
+            /* reset when section leaves screen so animation replays on re-entry */
+            if (window.innerWidth <= 768) {
+                images.style.bottom = "-120%";
+            } else {
+                images.style.right = "-120%";
+            }
+            document.querySelector(".what-section").classList.remove("bw-mode");
+        }
+    });
+    /* ===== IMAGE EXPAND ===== */
+    const cards = document.querySelectorAll(".image-card");
+    const imagesContainer = document.querySelector(".what-images");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            imagesContainer.classList.add("expand");
+            cards.forEach(c => c.classList.remove("active", "shrink"));
+            card.classList.add("active");
+            cards.forEach(c => { if (c !== card) c.classList.add("shrink"); });
+        });
+    });
+
+    /* ===== VIDEO POPUP ===== */
+    function openVideo(url) {
+        const popup = document.getElementById("videoPopup");
+        const frame = document.getElementById("videoFrame");
+        let embedUrl = url;
+        if (url.includes("watch?v=")) {
+            const videoId = url.split("watch?v=")[1].split("&")[0];
+            embedUrl = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+        }
+        frame.src = embedUrl;
+        popup.classList.add("active");
+    }
+
+    function closeVideo() {
+        document.getElementById("videoPopup").classList.remove("active");
+        document.getElementById("videoFrame").src = "";
+    }
+
+    function goProject(url) { window.location.href = url; }
+    function openProject(url) { window.location.href = url; }
+    function openSite(url) { window.location.href = url; }
+
+
+
+    function toggleMenu() {
+        document.querySelector(".nav-menu").classList.toggle("active");
+    }
+
+    function closeMenu() {
+        document.querySelector(".nav-menu").classList.remove("active");
+    }
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach(item => {
+            item.addEventListener("click", function () {
+
+                // close others
+                faqItems.forEach(el => {
+                    if (el !== item) el.classList.remove("active");
+                });
+
+                // toggle current
+                item.classList.toggle("active");
+            });
+        });
+    });
+
+
+</script>
+
+<script>
+
+    // =====================================================================
+  // CHATBOT WIDGET
+  // =====================================================================
+  const chatbotWrapper = document.getElementById('chatbotWrapper');
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatbotClose = document.getElementById('chatbotClose');
+  const chatbotInput = document.getElementById('chatbotInput');
+  const chatbotSend = document.getElementById('chatbotSend');
+  const chatbotMessages = document.getElementById('chatbotMessages');
+  const chatbotWindow = document.getElementById('chatbotWindow');
+  const chatbotDragHandle = document.getElementById('chatbotDragHandle');
+
+  function openChatbot() {
+      chatbotWrapper.classList.add('open');
+      chatbotInput.focus();
+  }
+
+  function closeChatbot() {
+      chatbotWrapper.classList.remove('open');
+  }
+
+  function addMessage(text, type) {
+      const bubble = document.createElement('div');
+      bubble.className = `chat-message ${type}`;
+      bubble.textContent = text;
+      chatbotMessages.appendChild(bubble);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  function respondToMessage(message) {
+      const normalized = message.trim().toLowerCase();
+      if (['hi', 'hello', 'hey'].includes(normalized)) {
+          addMessage('Hi, this is Green Siri.', 'bot');
+      } else {
+          addMessage('Thanks for reaching out! Share your query and we will get back to you.', 'bot');
+      }
+  }
+
+  function sendMessage() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      chatbotInput.value = '';
+      respondToMessage(text);
+  }
+
+  // Event Listeners for Chat Functionality
+  chatbotToggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openChatbot();
+  });
+
+  chatbotClose?.addEventListener('click', closeChatbot);
+  chatbotSend?.addEventListener('click', sendMessage);
+  chatbotInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+  });
+
+  // Drag to reposition logic
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let startRight = 0;
+  let startBottom = 0;
+
+  function handleDragStart(e) {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      const rect = chatbotWrapper.getBoundingClientRect();
+      startRight = window.innerWidth - rect.right;
+      startBottom = window.innerHeight - rect.bottom;
+      document.addEventListener('pointermove', handleDragMove);
+      document.addEventListener('pointerup', handleDragEnd);
+  }
+
+  function handleDragMove(e) {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      chatbotWrapper.style.right = `${Math.max(0, startRight - deltaX)}px`;
+      chatbotWrapper.style.bottom = `${Math.max(0, startBottom - deltaY)}px`;
+  }
+
+  function handleDragEnd() {
+      isDragging = false;
+      document.removeEventListener('pointermove', handleDragMove);
+      document.removeEventListener('pointerup', handleDragEnd);
+  }
+
+  chatbotDragHandle?.addEventListener('pointerdown', handleDragStart);
+</script>
+
+</body>
+
+</html>
